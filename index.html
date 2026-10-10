@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portofolio Muhamad Rayhan Maulana, mahasiswa Teknik Informatika yang tertarik pada web development dan UI/UX.">
+    <meta name="theme-color" content="#0b0e14">
+    <title>Muhamad Rayhan Maulana | Portofolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="css/style.css?v=3">
+</head>
+<body class="bg-[#0b0e14] text-white font-sans antialiased overflow-x-hidden relative">
+    <canvas id="bg-canvas" class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none" aria-hidden="true"></canvas>
+    <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
+    <div class="ambient-glow" aria-hidden="true"></div>
+
+    <!-- SITE HEADER -->
+    <header class="site-header fixed top-0 left-0 w-full z-50 px-4 sm:px-6 lg:px-12 py-3.5 flex justify-between items-center transition-all duration-300">
+        <a href="#home" class="site-logo text-xl font-extrabold tracking-tight flex items-center gap-1.5 flex-shrink-0" aria-label="Kembali ke Beranda">
+            <span>Portofolio</span><span class="logo-accent">®</span>
+        </a>
+
+        <nav class="site-nav hidden md:flex items-center gap-6 lg:gap-8 font-medium text-sm" aria-label="Navigasi Utama">
+            <a href="#about" class="nav-link">Tentang</a>
+            <a href="#education" class="nav-link">Pendidikan</a>
+            <a href="#skills" class="nav-link">Keahlian</a>
+            <a href="#projects" class="nav-link">Proyek</a>
+            <a href="#contact" class="nav-contact-link">
+                <span>Mari terhubung</span>
+                <i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i>
+            </a>
+        </nav>
+
+        <button id="menu-btn" class="md:hidden p-2.5 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition flex items-center justify-center cursor-pointer" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="mobile-menu">
+            <i id="menu-icon" data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+    </header>
+
+    <!-- MOBILE MENU DRAWER -->
+    <div id="mobile-menu" class="hidden md:hidden fixed inset-x-0 z-40 px-6 py-6 flex flex-col gap-2 transition-all duration-300">
+        <a href="#about" class="mobile-link">Tentang</a>
+        <a href="#education" class="mobile-link">Pendidikan</a>
+        <a href="#skills" class="mobile-link">Keahlian</a>
+        <a href="#projects" class="mobile-link">Proyek</a>
+        <a href="#contact" class="mobile-link-contact mt-3">
+            <span>Mari terhubung</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+        </a>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main id="main-content">
+        <!-- HERO SECTION -->
+        <section id="home" class="hero-section px-4 sm:px-6 lg:px-12 py-20 md:py-28 max-w-7xl mx-auto relative z-10">
+            <div class="hero-badge inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold mb-6">
+                <span class="hero-badge-dot"></span>
+                <span>Siap untuk Proyek Baru &amp; Kolaborasi</span>
+            </div>
+
+            <h1 id="hero-title" class="hero-title font-extrabold tracking-tight mb-4">
+                Muhamad Rayhan Maulana
+            </h1>
+
+            <h2 class="hero-sub font-semibold mb-6 flex flex-wrap items-center gap-2">
+                <span>Mahasiswa Teknik Informatika</span>
+                <span id="typed" class="font-extrabold text-lime-400"></span>
+            </h2>
+
+            <p class="hero-desc text-gray-400 max-w-2xl text-base md:text-lg mb-8 leading-relaxed">
+                Fokus pada pembuatan aplikasi web responsif, antarmuka intuitif, dan pengalaman pengguna yang luar biasa.
+            </p>
+
+            <div class="hero-actions flex flex-wrap items-center gap-4">
+                <a href="#projects" class="hero-primary">
+                    <span>Lihat Portofolio Karya</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+                <a href="#contact" class="hero-secondary">
+                    <span>Mari Terhubung</span>
+                </a>
+            </div>
+
+            <div class="hero-social flex items-center gap-3 mt-8">
+                <a href="https://github.com/rayhanmaulana0203-sketch" target="_blank" rel="noopener noreferrer" aria-label="Profil GitHub Rayhan" title="GitHub" class="social-btn">
+                    <i data-lucide="code-2" class="w-5 h-5" aria-hidden="true"></i>
+                </a>
+                <a href="https://linkedin.com/in/muhamad-rayhan-maulana-743b47363" target="_blank" rel="noopener noreferrer" aria-label="Profil LinkedIn Rayhan" title="LinkedIn" class="social-btn">
+                    <i data-lucide="briefcase-business" class="w-5 h-5" aria-hidden="true"></i>
+                </a>
+                <a href="mailto:rayhanmaulana0203@gmail.com" aria-label="Kirim email kepada Rayhan" title="Email" class="social-btn">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="reveal-section content-section px-4 sm:px-6 lg:px-12 py-20 border-t border-white/5">
+            <div class="max-w-7xl mx-auto">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-index">01 / PERKENALAN</span>
+                        <h2>Tentang Saya</h2>
+                    </div>
+                    <p>Kenali perjalanan dan minat saya di bidang teknologi.</p>
+                </div>
+
+                <div class="about-grid grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="about-photo-card">
+                            <div class="about-photo-wrapper">
+                                <img src="images/foto saya.jpeg" alt="Potret Muhamad Rayhan Maulana" class="profile-img" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-7">
+                        <h3 class="about-headline text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 leading-snug">
+                            Mengubah logika &amp; algoritma menjadi antarmuka web yang intuitif.
+                        </h3>
+
+                        <div class="about-text space-y-4 text-gray-300 leading-relaxed text-sm sm:text-base">
+                            <p>
+                                Saya adalah mahasiswa dan Web Developer yang berfokus pada pengembangan antarmuka web yang bersih, responsif, dan mudah digunakan.
+                            </p>
+                            <p>
+                                Selalu bersemangat mempelajari teknologi baru dan mengimplementasikannya ke dalam proyek nyata.
+                            </p>
+
+                            <div id="more-text" class="hidden space-y-4 pt-2">
+                                <p>
+                                    Selain pengembangan front-end, saya juga aktif mempelajari arsitektur kode yang efisien, optimasi performa web, serta prinsip UX/UI agar antarmuka tidak hanya menarik tetapi juga nyaman digunakan.
+                                </p>
+                                <p>
+                                    Saya selalu terbuka untuk peluang kolaborasi, proyek lepas (freelance), maupun diskusi seputar perkembangan teknologi web terkini.
+                                </p>
+                            </div>
+                        </div>
+
+                        <button onclick="toggleReadMore()" aria-expanded="false" aria-controls="more-text" class="read-more-btn mt-4 text-sm font-semibold inline-flex items-center gap-1.5 focus:outline-none cursor-pointer">
+                            <span id="read-more-text">Lanjut baca</span>
+                            <i id="read-more-icon" data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
+                        </button>
+
+                        <div class="mt-8">
+                            <a href="#contact" class="about-collab-link inline-flex items-center gap-2 text-base font-bold pb-1 transition">
+                                <span>Mari berkolaborasi</span>
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section id="education" class="reveal-section content-section px-4 sm:px-6 lg:px-12 py-20 border-t border-white/5">
+            <div class="max-w-7xl mx-auto">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-index">02 / PERJALANAN</span>
+                        <h2>Pendidikan &amp; Pengalaman</h2>
+                    </div>
+                    <p>Perjalanan akademik dan aktivitas kampus saya di bidang teknologi.</p>
+                </div>
+
+                <div class="timeline academic-timeline">
+                    <article class="timeline-item timeline-item-current">
+                        <div class="timeline-dot" aria-hidden="true"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-card-heading">
+                                <span class="timeline-icon"><i data-lucide="graduation-cap" class="w-5 h-5" aria-hidden="true"></i></span>
+                                <span class="timeline-period">2025 — Sekarang</span>
+                            </div>
+                            <span class="timeline-label">Pendidikan tinggi · S1</span>
+                            <h3>Teknik Informatika</h3>
+                            <p class="timeline-school">STT Terpadu Nurul Fikri</p>
+                            <span class="timeline-tag"><span aria-hidden="true"></span> Sedang ditempuh</span>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-dot" aria-hidden="true"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-card-heading">
+                                <span class="timeline-icon timeline-icon-secondary"><i data-lucide="calculator" class="w-5 h-5" aria-hidden="true"></i></span>
+                                <span class="timeline-period">2022 — 2025</span>
+                            </div>
+                            <span class="timeline-label">Pendidikan menengah · Keahlian</span>
+                            <h3>Akuntansi dan Keuangan Lembaga</h3>
+                            <p class="timeline-school">SMK Amaliyah Jakarta</p>
+                            <p>Mempelajari pencatatan transaksi, penyusunan laporan keuangan, administrasi, dan pengelolaan dokumen keuangan lembaga.</p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-dot" aria-hidden="true"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-card-heading">
+                                <span class="timeline-icon"><i data-lucide="users" class="w-5 h-5" aria-hidden="true"></i></span>
+                                <span class="timeline-period">2026 — Sekarang</span>
+                            </div>
+                            <span class="timeline-label">Organisasi mahasiswa</span>
+                            <h3>HIMA TI</h3>
+                            <p class="timeline-school">Himpunan Mahasiswa Teknik Informatika</p>
+                            <p>Wadah mahasiswa untuk mengembangkan kompetensi di bidang informatika, berbagi wawasan, dan membangun kolaborasi melalui kegiatan akademik maupun kemahasiswaan di STT Terpadu Nurul Fikri.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="reveal-section content-section px-4 sm:px-6 lg:px-12 py-20 border-t border-white/5">
+            <div class="max-w-7xl mx-auto">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-index">03 / KEMAMPUAN</span>
+                        <h2>Keahlian</h2>
+                    </div>
+                    <p>Kemampuan teknis dan dasar perancangan yang saya kuasai.</p>
+                </div>
+
+                <div class="skills-grid">
+                    <article class="skill-card">
+                        <div class="skill-card-top">
+                            <div class="skill-icon"><i data-lucide="layout" class="w-6 h-6" aria-hidden="true"></i></div>
+                            <span class="skill-number">01</span>
+                        </div>
+                        <h3>UI/UX Design</h3>
+                        <p>Merancang antarmuka yang intuitif dengan wireframe dan prototipe untuk pengalaman pengguna yang lebih baik.</p>
+                        <div class="skill-tags" aria-label="Keahlian UI/UX Design">
+                            <span>Figma</span>
+                            <span>Wireframing</span>
+                            <span>Prototyping</span>
+                            <span>Design Systems</span>
+                        </div>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-card-top">
+                            <div class="skill-icon"><i data-lucide="code-2" class="w-6 h-6" aria-hidden="true"></i></div>
+                            <span class="skill-number">02</span>
+                        </div>
+                        <h3>Frontend Development</h3>
+                        <p>Membangun tampilan web responsif dan interaktif, serta menjalankan server portfolio sederhana dengan Node.js.</p>
+                        <div class="skill-tags" aria-label="Keahlian Frontend Development">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>Tailwind CSS</span>
+                            <span>JavaScript</span>
+                            <span>Node.js</span>
+                        </div>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-card-top">
+                            <div class="skill-icon"><i data-lucide="sparkles" class="w-6 h-6" aria-hidden="true"></i></div>
+                            <span class="skill-number">03</span>
+                        </div>
+                        <h3>Soft Skills &amp; Kolaborasi</h3>
+                        <p>Mengandalkan komunikasi aktif, problem solving, dan manajemen waktu saat bekerja secara mandiri maupun tim.</p>
+                        <div class="skill-tags" aria-label="Keahlian dan tools pendukung">
+                            <span>Problem Solving</span>
+                            <span>Git &amp; GitHub</span>
+                            <span>Komunikasi Tim</span>
+                            <span>Adaptabilitas</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="reveal-section content-section px-4 sm:px-6 lg:px-12 py-20 border-t border-white/5">
+            <div class="max-w-7xl mx-auto">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-index">04 / KARYA PILIHAN</span>
+                        <h2>Proyek Pilihan</h2>
+                    </div>
+                    <p>Tiga proyek pilihan untuk memperlihatkan eksplorasi dan karya saya.</p>
+                </div>
+
+                <div class="project-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                    <!-- Project 1 -->
+                    <article class="project-card flex flex-col rounded-2xl overflow-hidden group">
+                        <div class="project-image">
+                            <img src="images/Website E Commerce.png" alt="Tampilan halaman utama toko buah dengan katalog produk" loading="lazy">
+                        </div>
+                        <div class="project-content p-6 flex flex-col justify-between flex-1">
+                            <div>
+                                <div class="project-tags flex flex-wrap gap-2 mb-3.5">
+                                    <span class="tag-accent">Tailwind CSS</span>
+                                    <span class="tag-muted">JavaScript</span>
+                                    <span class="tag-muted">Responsive</span>
+                                </div>
+                                <h3 class="project-title text-xl sm:text-2xl font-bold mb-2.5 transition">
+                                    Website E-Commerce Toko Buah
+                                </h3>
+                                <p class="project-desc text-gray-400 text-sm mb-6 leading-relaxed">
+                                    Halaman toko buah dengan katalog produk, navigasi kategori, dan area promosi untuk pengalaman belanja online yang nyaman.
+                                </p>
+                            </div>
+                            <div class="project-footer flex flex-wrap items-center gap-3 mt-auto pt-4 border-t border-white/5">
+                                <span class="project-preview-pending">Live Preview segera hadir</span>
+                                <a href="https://github.com/rayhanmaulana0203-sketch" target="_blank" rel="noopener noreferrer" class="project-action-primary">
+                                    <span>Lihat GitHub</span>
+                                    <i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="project-card flex flex-col rounded-2xl overflow-hidden group">
+                        <div class="project-image">
+                            <img src="images/math-ceria-preview.png" alt="Pratinjau website Math Ceria untuk belajar matematika dengan cara menyenangkan" loading="lazy">
+                        </div>
+                        <div class="project-content p-6 flex flex-col justify-between flex-1">
+                            <div>
+                                <div class="project-tags flex flex-wrap gap-2 mb-3.5">
+                                    <span class="tag-accent">Edukasi</span>
+                                    <span class="tag-muted">Matematika</span>
+                                    <span class="tag-muted">Web Interaktif</span>
+                                </div>
+                                <h3 class="project-title text-xl sm:text-2xl font-bold mb-2.5 transition">
+                                    Math Ceria — Belajar Matematika
+                                </h3>
+                                <p class="project-desc text-gray-400 text-sm mb-6 leading-relaxed">
+                                    Website edukasi yang mengajak siswa belajar matematika dengan suasana menyenangkan, dilengkapi navigasi materi interaktif.
+                                </p>
+                            </div>
+                            <div class="project-footer flex flex-wrap items-center gap-3 mt-auto pt-4 border-t border-white/5">
+                                <span class="project-preview-pending">Konsep proyek cadangan</span>
+                                <a href="https://github.com/rayhanmaulana0203-sketch" target="_blank" rel="noopener noreferrer" class="project-action-primary">
+                                    <span>Lihat GitHub</span>
+                                    <i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="project-card flex flex-col rounded-2xl overflow-hidden group">
+                        <div class="project-image project-placeholder" aria-hidden="true">
+                            <div class="placeholder-graphic">
+                                <i data-lucide="compass" class="w-12 h-12"></i>
+                                <span>Konsep Eksplorasi</span>
+                            </div>
+                        </div>
+                        <div class="project-content p-6 flex flex-col justify-between flex-1">
+                            <div>
+                                <div class="project-tags flex flex-wrap gap-2 mb-3.5">
+                                    <span class="tag-accent">JavaScript</span>
+                                    <span class="tag-muted">Responsive</span>
+                                    <span class="tag-muted">Eksplorasi</span>
+                                </div>
+                                <h3 class="project-title text-xl sm:text-2xl font-bold mb-2.5 transition">
+                                    Website Panduan Wisata
+                                </h3>
+                                <p class="project-desc text-gray-400 text-sm mb-6 leading-relaxed">
+                                    Konsep website panduan destinasi wisata dengan informasi tempat, rekomendasi aktivitas, dan tampilan ramah perangkat seluler.
+                                </p>
+                            </div>
+                            <div class="project-footer flex flex-wrap items-center gap-3 mt-auto pt-4 border-t border-white/5">
+                                <span class="project-preview-pending">Konsep eksplorasi</span>
+                                <a href="https://github.com/rayhanmaulana0203-sketch" target="_blank" rel="noopener noreferrer" class="project-action-primary">
+                                    <span>Lihat GitHub</span>
+                                    <i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="reveal-section content-section px-4 sm:px-6 lg:px-12 py-20 md:py-28 border-t border-white/5">
+            <div class="contact-layout max-w-7xl mx-auto">
+                <div class="contact-copy">
+                    <span class="section-eyebrow">05 / HUBUNGI SAYA</span>
+                    <h2 class="contact-title text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-5">
+                        Yuk, buat sesuatu <span class="highlight-text">yang hebat</span> bersama.
+                    </h2>
+                    <p class="contact-intro text-gray-400 text-base md:text-lg mb-8 leading-relaxed">
+                        Punya ide proyek, peluang magang, atau ingin berdiskusi tentang teknologi web? Saya terbuka untuk terhubung.
+                    </p>
+
+                    <div class="contact-email">
+                        <a id="email-btn" href="mailto:rayhanmaulana0203@gmail.com" aria-label="Kirim email ke rayhanmaulana0203@gmail.com" class="email-address-link">
+                            <i data-lucide="mail" class="w-5 h-5 flex-shrink-0" aria-hidden="true"></i>
+                            <span class="truncate">rayhanmaulana0203@gmail.com</span>
+                        </a>
+                        <div class="contact-email-actions">
+                            <button id="copy-email-btn" type="button" class="btn-copy">
+                                <i data-lucide="copy" class="w-4 h-4" aria-hidden="true"></i>
+                                <span id="copy-btn-text">Salin</span>
+                            </button>
+                            <a class="contact-send" href="mailto:rayhanmaulana0203@gmail.com">
+                                <i data-lucide="send" class="w-4 h-4" aria-hidden="true"></i>
+                                <span>Kirim Email</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <p id="toast" class="contact-status hidden" role="status" aria-live="polite">
+                        <i data-lucide="check" class="w-4 h-4 inline-block mr-1 text-lime-400"></i>
+                        <span>Email berhasil disalin ke clipboard!</span>
+                    </p>
+
+                    <p class="contact-response">
+                        <span class="status-indicator" aria-hidden="true"></span>
+                        <span>Biasanya membalas dalam 24 jam</span>
+                    </p>
+                </div>
+
+                <div class="social-grid grid grid-cols-1 sm:grid-cols-2 gap-4" aria-label="Profil sosial">
+                    <a class="social-card" href="https://github.com/rayhanmaulana0203-sketch" target="_blank" rel="noopener noreferrer">
+                        <div class="social-card-header">
+                            <span class="social-icon"><i data-lucide="code-2" class="w-5 h-5" aria-hidden="true"></i></span>
+                            <i data-lucide="arrow-up-right" class="social-arrow w-4 h-4" aria-hidden="true"></i>
+                        </div>
+                        <strong class="social-platform">GitHub</strong>
+                        <span class="social-description">Repositori &amp; kode sumber</span>
+                    </a>
+
+                    <a class="social-card" href="https://linkedin.com/in/muhamad-rayhan-maulana-743b47363" target="_blank" rel="noopener noreferrer">
+                        <div class="social-card-header">
+                            <span class="social-icon"><i data-lucide="briefcase-business" class="w-5 h-5" aria-hidden="true"></i></span>
+                            <i data-lucide="arrow-up-right" class="social-arrow w-4 h-4" aria-hidden="true"></i>
+                        </div>
+                        <strong class="social-platform">LinkedIn</strong>
+                        <span class="social-description">Jaringan &amp; profil profesional</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer py-8 px-4 sm:px-6 text-center text-xs text-gray-500 border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p>© 2026 Muhamad Rayhan Maulana <span aria-hidden="true">·</span> Hak cipta dilindungi undang-undang.</p>
+            <p class="text-gray-400">Dirancang &amp; dikembangkan dengan fokus pada kualitas dan performa.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

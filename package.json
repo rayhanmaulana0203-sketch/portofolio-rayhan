@@ -1,0 +1,16 @@
+{
+  "name": "rayhan-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Portofolio Muhamad Rayhan Maulana dengan server Node.js.",
+  "engines": {
+    "node": ">=18.11"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "check": "node tools/check-site.mjs",
+    "build": "npm run check && node tools/build.mjs"
+  }
+}
