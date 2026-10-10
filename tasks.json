@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Portfolio: Check",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "check"],
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Portfolio: Build",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "build"],
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Portfolio: Start server",
+      "type": "shell",
+      "command": "npm",
+      "args": ["start"],
+      "problemMatcher": []
+    }
+  ]
+}
