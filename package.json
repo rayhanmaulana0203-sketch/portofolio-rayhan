@@ -11,6 +11,6 @@
     "start": "node server.js",
     "dev": "node --watch server.js",
     "check": "node tools/check-site.mjs",
-    "build": "npm run check && node tools/build.mjs"
+    "build": "node tools/check-site.mjs && node tools/build.mjs"
   }
 }

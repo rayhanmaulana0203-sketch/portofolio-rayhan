@@ -55,12 +55,6 @@ body {
     background-color: var(--bg-dark);
     color: var(--text-primary);
     font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-image: 
-        radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-    background-size: 24px 24px, 48px 48px, 48px 48px;
-    background-position: 0 0, 0 0, 0 0;
 }
 
 ::selection {
@@ -256,26 +250,6 @@ a:focus-visible, button:focus-visible {
     padding-top: calc(var(--header-height) + 2.5rem);
 }
 
-.hero-badge {
-    background: var(--brand-lime-subtle);
-    border: 1px solid var(--line-lime);
-    color: var(--brand-lime);
-}
-
-.hero-badge-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--brand-lime);
-    box-shadow: 0 0 0 4px var(--brand-lime-glow);
-    animation: pulseGlow 2s infinite ease-in-out;
-}
-
-@keyframes pulseGlow {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.15); opacity: 0.7; }
-}
-
 .hero-title {
     font-size: clamp(2.4rem, 6.5vw, 4.8rem);
     line-height: 1.05;
@@ -384,14 +358,12 @@ a:focus-visible, button:focus-visible {
 }
 
 .section-index {
-    display: block;
+    display: inline-block;
     margin-bottom: 8px;
     color: var(--brand-lime);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-family: monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
 }
 
 .section-heading h2 {
@@ -619,16 +591,14 @@ a:focus-visible, button:focus-visible {
 }
 
 .timeline-period {
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    padding: 5px 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 4px 10px;
     border-radius: var(--radius-sm);
     background: var(--brand-lime-subtle);
     border: 1px solid var(--line-lime);
     color: var(--brand-lime);
-    font-family: monospace;
 }
 
 .timeline-label {
@@ -904,14 +874,12 @@ a:focus-visible, button:focus-visible {
 }
 
 .section-eyebrow {
-    display: block;
+    display: inline-block;
     margin-bottom: 14px;
     color: var(--brand-lime);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-family: monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
 }
 
 .contact-title {
@@ -1017,7 +985,6 @@ a:focus-visible, button:focus-visible {
     margin-top: 18px;
     color: var(--text-muted);
     font-size: 0.8rem;
-    font-family: monospace;
 }
 
 .status-indicator {
@@ -1025,7 +992,6 @@ a:focus-visible, button:focus-visible {
     height: 8px;
     border-radius: 50%;
     background: #34d399;
-    box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.2);
 }
 
 /* Social cards */

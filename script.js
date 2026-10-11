@@ -1,12 +1,4 @@
-// ==========================================================================
-// PORTOFOLIO MUHAMAD RAYHAN MAULANA - SCRIPT.JS
-// Interactive Features, Smooth Animations, and Responsive Controls
-// ==========================================================================
-
 document.addEventListener('DOMContentLoaded', () => {
-    // ----------------------------------------------------------------------
-    // 1. LUCIDE ICONS INITIALIZATION
-    // ----------------------------------------------------------------------
     const refreshIcons = () => {
         if (typeof lucide !== 'undefined') {
             lucide.createIcons();
@@ -14,9 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     refreshIcons();
 
-    // ----------------------------------------------------------------------
-    // 2. TYPED.JS AUTO-TYPING EFFECT
-    // ----------------------------------------------------------------------
+    // Hero title role typewriter
     const typedElement = document.getElementById('typed');
     if (typedElement && typeof Typed !== 'undefined') {
         new Typed('#typed', {
@@ -32,9 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ----------------------------------------------------------------------
-    // 3. MOBILE MENU INTERACTION
-    // ----------------------------------------------------------------------
+    // Mobile navigation toggle
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const menuIcon = document.getElementById('menu-icon');
@@ -95,9 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ----------------------------------------------------------------------
-    // 4. SCROLLSPY (ACTIVE NAV LINK HIGHLIGHT)
-    // ----------------------------------------------------------------------
+    // Active navigation link tracking on scroll
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.site-nav .nav-link, .mobile-link');
 
@@ -125,9 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', updateActiveNav, { passive: true });
     updateActiveNav();
 
-    // ----------------------------------------------------------------------
-    // 5. SCROLL REVEAL ANIMATIONS
-    // ----------------------------------------------------------------------
+    // Section reveal on scroll
     const revealSections = document.querySelectorAll('.reveal-section');
 
     const revealOnScroll = () => {
@@ -149,9 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', revealOnScroll, { passive: true });
     revealOnScroll();
 
-    // ----------------------------------------------------------------------
-    // 6. COPY EMAIL FEATURE
-    // ----------------------------------------------------------------------
+    // Email copy to clipboard
     const copyBtn = document.getElementById('copy-email-btn');
     const copyBtnText = document.getElementById('copy-btn-text');
     const toast = document.getElementById('toast');
@@ -197,9 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ----------------------------------------------------------------------
-    // 7. THREE.JS 3D STARFIELD BACKGROUND
-    // ----------------------------------------------------------------------
+    // Three.js interactive canvas particle background
     const initStarfield = () => {
         const canvas = document.getElementById('bg-canvas');
         if (!canvas || typeof THREE === 'undefined') return;
@@ -273,52 +253,9 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     initStarfield();
-
-    // ----------------------------------------------------------------------
-    // 8. GSAP INITIAL LOAD ANIMATIONS
-    // ----------------------------------------------------------------------
-    if (typeof gsap !== 'undefined') {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            gsap.set('header, #hero-title, .hero-sub, .hero-desc, .hero-actions', { clearProps: 'all' });
-        } else {
-            gsap.from('.site-header', {
-                y: -40,
-                opacity: 0,
-                duration: 0.8,
-                ease: 'power3.out'
-            });
-
-            gsap.from('#hero-title', {
-                y: 35,
-                opacity: 0,
-                duration: 1,
-                delay: 0.2,
-                ease: 'power3.out'
-            });
-
-            gsap.from('.hero-sub', {
-                y: 25,
-                opacity: 0,
-                duration: 0.9,
-                delay: 0.4,
-                ease: 'power2.out'
-            });
-
-            gsap.from('.hero-desc, .hero-actions, .hero-social', {
-                y: 20,
-                opacity: 0,
-                duration: 0.8,
-                stagger: 0.15,
-                delay: 0.6,
-                ease: 'power2.out'
-            });
-        }
-    }
 });
 
-// --------------------------------------------------------------------------
-// 9. READ MORE TOGGLE FUNCTION (GLOBAL)
-// --------------------------------------------------------------------------
+// Expand/collapse about section extended bio
 function toggleReadMore() {
     const moreText = document.getElementById('more-text');
     const btnText = document.getElementById('read-more-text');
