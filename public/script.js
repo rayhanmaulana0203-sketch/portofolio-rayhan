@@ -276,3 +276,7 @@ function toggleReadMore() {
         btnIcon.style.transform = 'rotate(0deg)';
     }
 }
+
+if (typeof window !== 'undefined') {
+    window.toggleReadMore = toggleReadMore;
+}

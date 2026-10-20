@@ -1,0 +1,59 @@
+---
+---
+<!-- ABOUT SECTION -->
+<section id="about" class="reveal-section content-section px-4 sm:px-6 lg:px-12 py-20 border-t border-white/5">
+    <div class="max-w-7xl mx-auto">
+        <div class="section-heading">
+            <div>
+                <span class="section-index">01 · Profil</span>
+                <h2>Tentang Saya</h2>
+            </div>
+            <p>Kenali perjalanan dan minat saya di bidang teknologi.</p>
+        </div>
+
+        <div class="about-grid grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="about-photo-card">
+                    <div class="about-photo-wrapper">
+                        <img src="/images/foto saya.jpeg" alt="Potret Muhamad Rayhan Maulana" class="profile-img" loading="lazy">
+                    </div>
+                </div>
+            </div>
+            <div class="lg:col-span-7">
+                <h3 class="about-headline text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 leading-snug">
+                    Mengubah logika &amp; algoritma menjadi antarmuka web yang intuitif.
+                </h3>
+
+                <div class="about-text space-y-4 text-gray-300 leading-relaxed text-sm sm:text-base">
+                    <p>
+                        Saya adalah mahasiswa dan Web Developer yang berfokus pada pengembangan antarmuka web yang bersih, responsif, dan mudah digunakan.
+                    </p>
+                    <p>
+                        Selalu bersemangat mempelajari teknologi baru dan mengimplementasikannya ke dalam proyek nyata.
+                    </p>
+
+                    <div id="more-text" class="hidden space-y-4 pt-2">
+                        <p>
+                            Selain pengembangan front-end, saya juga aktif mempelajari arsitektur kode yang efisien, optimasi performa web, serta prinsip UX/UI agar antarmuka tidak hanya menarik tetapi juga nyaman digunakan.
+                        </p>
+                        <p>
+                            Saya selalu terbuka untuk peluang kolaborasi, proyek lepas (freelance), maupun diskusi seputar perkembangan teknologi web terkini.
+                        </p>
+                    </div>
+                </div>
+
+                <button onclick="toggleReadMore()" aria-expanded="false" aria-controls="more-text" class="read-more-btn mt-4 text-sm font-semibold inline-flex items-center gap-1.5 focus:outline-none cursor-pointer">
+                    <span id="read-more-text">Lanjut baca</span>
+                    <i id="read-more-icon" data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
+                </button>
+
+                <div class="mt-8">
+                    <a href="#contact" class="about-collab-link inline-flex items-center gap-2 text-base font-bold pb-1 transition">
+                        <span>Mari berkolaborasi</span>
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

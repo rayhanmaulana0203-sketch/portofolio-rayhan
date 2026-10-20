@@ -3,14 +3,18 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Portofolio Muhamad Rayhan Maulana dengan server Node.js.",
+  "description": "Portofolio Muhamad Rayhan Maulana dengan Astro.",
   "engines": {
     "node": ">=18.11"
   },
   "scripts": {
-    "start": "node server.js",
-    "dev": "node --watch server.js",
-    "check": "node tools/check-site.mjs",
-    "build": "node tools/check-site.mjs && node tools/build.mjs"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build && node tools/check-site.mjs",
+    "preview": "astro preview",
+    "check": "node tools/check-site.mjs"
+  },
+  "dependencies": {
+    "astro": "^7.4.1"
   }
 }

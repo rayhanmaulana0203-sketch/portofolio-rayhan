@@ -3,12 +3,22 @@ import { isAbsolute, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const projectRoot = resolve(fileURLToPath(new URL('..', import.meta.url)));
-const htmlPath = resolve(projectRoot, 'index.html');
+const distHtmlPath = resolve(projectRoot, 'dist', 'index.html');
+const rootHtmlPath = resolve(projectRoot, 'index.html');
+
+let htmlPath = rootHtmlPath;
+try {
+    await stat(distHtmlPath);
+    htmlPath = distHtmlPath;
+} catch {
+    htmlPath = rootHtmlPath;
+}
+
 const html = await readFile(htmlPath, 'utf8');
 const failures = [];
 
 if (!/^<!doctype html>/i.test(html.trimStart())) {
-    failures.push('index.html is missing the HTML doctype.');
+    failures.push(`${relative(projectRoot, htmlPath)} is missing the HTML doctype.`);
 }
 
 const ids = [...html.matchAll(/\bid=["']([^"']+)["']/g)].map(match => match[1]);
@@ -34,26 +44,36 @@ const localReferences = [
 });
 
 for (const reference of localReferences) {
-    let localPath;
+    let pathname;
     try {
-        const pathname = decodeURIComponent(new URL(reference, 'http://localhost').pathname);
-        localPath = resolve(projectRoot, pathname.replace(/^\/+/, ''));
+        pathname = decodeURIComponent(new URL(reference, 'http://localhost').pathname);
     } catch {
         failures.push(`Invalid local asset reference: ${reference}`);
         continue;
     }
 
-    const relativePath = relative(projectRoot, localPath);
-    if (relativePath.startsWith('..') || isAbsolute(relativePath)) {
-        failures.push(`Local asset reference escapes the project: ${reference}`);
-        continue;
+    const cleanPath = pathname.replace(/^\/+/, '');
+    const searchDirs = [
+        resolve(projectRoot, 'dist'),
+        resolve(projectRoot, 'public'),
+        projectRoot
+    ];
+
+    let fileFound = false;
+    for (const dir of searchDirs) {
+        const candidate = resolve(dir, cleanPath);
+        const rel = relative(projectRoot, candidate);
+        if (rel.startsWith('..') || isAbsolute(rel)) continue;
+
+        try {
+            if ((await stat(candidate)).isFile()) {
+                fileFound = true;
+                break;
+            }
+        } catch {}
     }
 
-    try {
-        if (!(await stat(localPath)).isFile()) {
-            failures.push(`Local asset is not a file: ${reference}`);
-        }
-    } catch {
+    if (!fileFound) {
         failures.push(`Local asset does not exist: ${reference}`);
     }
 }
@@ -75,5 +95,5 @@ if (failures.length > 0) {
     }
     process.exitCode = 1;
 } else {
-    console.log(`Site check passed: ${ids.length} unique IDs and ${localReferences.length} local assets.`);
+    console.log(`Site check passed: ${ids.length} unique IDs and ${localReferences.length} local assets in ${relative(projectRoot, htmlPath)}.`);
 }
