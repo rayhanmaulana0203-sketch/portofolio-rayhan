@@ -15,6 +15,11 @@
     "check": "node tools/check-site.mjs"
   },
   "dependencies": {
-    "astro": "^7.4.1"
+    "astro": "^7.4.1",
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "@types/three": "^0.186.0",
+    "sass": "^1.105.2"
   }
 }

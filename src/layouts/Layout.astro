@@ -1,7 +1,7 @@
 ---
-import '../styles/style.css';
+import '../styles/main.scss';
 
-interface Props {
+export interface Props {
   title?: string;
   description?: string;
 }
@@ -36,7 +36,6 @@ const {
 
     <slot />
 
-    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script is:inline src="/script.js"></script>
+    <script src="../scripts/main.ts"></script>
 </body>
 </html>

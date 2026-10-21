@@ -1,5 +1,39 @@
 ---
+import type { TimelineItem } from '../types';
+
+const timeline: TimelineItem[] = [
+  {
+    id: 'stt-nf',
+    period: '2025 - Sekarang',
+    label: 'Pendidikan tinggi · S1',
+    title: 'Teknik Informatika',
+    institution: 'STT Terpadu Nurul Fikri',
+    isCurrent: true,
+    statusBadge: 'Sedang ditempuh',
+    icon: 'graduation-cap'
+  },
+  {
+    id: 'smk-amaliyah',
+    period: '2022 - 2025',
+    label: 'Pendidikan menengah · Keahlian',
+    title: 'Akuntansi dan Keuangan Lembaga',
+    institution: 'SMK Amaliyah Jakarta',
+    description: 'Mempelajari pencatatan transaksi, penyusunan laporan keuangan, administrasi, dan pengelolaan dokumen keuangan lembaga.',
+    icon: 'calculator',
+    isSecondaryIcon: true
+  },
+  {
+    id: 'hima-ti',
+    period: '2026 - Sekarang',
+    label: 'Organisasi mahasiswa',
+    title: 'HIMA TI',
+    institution: 'Himpunan Mahasiswa Teknik Informatika',
+    description: 'Wadah mahasiswa untuk mengembangkan kompetensi di bidang informatika, berbagi wawasan, dan membangun kolaborasi melalui kegiatan akademik maupun kemahasiswaan di STT Terpadu Nurul Fikri.',
+    icon: 'users'
+  }
+];
 ---
+
 <!-- EDUCATION SECTION -->
 <section id="education" class="reveal-section content-section px-4 sm:px-6 lg:px-12 py-20 border-t border-white/5">
     <div class="max-w-7xl mx-auto">
@@ -12,47 +46,28 @@
         </div>
 
         <div class="timeline academic-timeline">
-            <article class="timeline-item timeline-item-current">
-                <div class="timeline-dot" aria-hidden="true"></div>
-                <div class="timeline-content">
-                    <div class="timeline-card-heading">
-                        <span class="timeline-icon"><i data-lucide="graduation-cap" class="w-5 h-5" aria-hidden="true"></i></span>
-                        <span class="timeline-period">2025 - Sekarang</span>
+            {timeline.map((item) => (
+                <article class={`timeline-item ${item.isCurrent ? 'timeline-item-current' : ''}`}>
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-card-heading">
+                            <span class={`timeline-icon ${item.isSecondaryIcon ? 'timeline-icon-secondary' : ''}`}>
+                                <i data-lucide={item.icon} class="w-5 h-5" aria-hidden="true"></i>
+                            </span>
+                            <span class="timeline-period">{item.period}</span>
+                        </div>
+                        <span class="timeline-label">{item.label}</span>
+                        <h3>{item.title}</h3>
+                        <p class="timeline-school">{item.institution}</p>
+                        {item.description && <p>{item.description}</p>}
+                        {item.statusBadge && (
+                            <span class="timeline-tag">
+                                <span aria-hidden="true"></span> {item.statusBadge}
+                            </span>
+                        )}
                     </div>
-                    <span class="timeline-label">Pendidikan tinggi · S1</span>
-                    <h3>Teknik Informatika</h3>
-                    <p class="timeline-school">STT Terpadu Nurul Fikri</p>
-                    <span class="timeline-tag"><span aria-hidden="true"></span> Sedang ditempuh</span>
-                </div>
-            </article>
-
-            <article class="timeline-item">
-                <div class="timeline-dot" aria-hidden="true"></div>
-                <div class="timeline-content">
-                    <div class="timeline-card-heading">
-                        <span class="timeline-icon timeline-icon-secondary"><i data-lucide="calculator" class="w-5 h-5" aria-hidden="true"></i></span>
-                        <span class="timeline-period">2022 - 2025</span>
-                    </div>
-                    <span class="timeline-label">Pendidikan menengah · Keahlian</span>
-                    <h3>Akuntansi dan Keuangan Lembaga</h3>
-                    <p class="timeline-school">SMK Amaliyah Jakarta</p>
-                    <p>Mempelajari pencatatan transaksi, penyusunan laporan keuangan, administrasi, dan pengelolaan dokumen keuangan lembaga.</p>
-                </div>
-            </article>
-
-            <article class="timeline-item">
-                <div class="timeline-dot" aria-hidden="true"></div>
-                <div class="timeline-content">
-                    <div class="timeline-card-heading">
-                        <span class="timeline-icon"><i data-lucide="users" class="w-5 h-5" aria-hidden="true"></i></span>
-                        <span class="timeline-period">2026 - Sekarang</span>
-                    </div>
-                    <span class="timeline-label">Organisasi mahasiswa</span>
-                    <h3>HIMA TI</h3>
-                    <p class="timeline-school">Himpunan Mahasiswa Teknik Informatika</p>
-                    <p>Wadah mahasiswa untuk mengembangkan kompetensi di bidang informatika, berbagi wawasan, dan membangun kolaborasi melalui kegiatan akademik maupun kemahasiswaan di STT Terpadu Nurul Fikri.</p>
-                </div>
-            </article>
+                </article>
+            ))}
         </div>
     </div>
 </section>

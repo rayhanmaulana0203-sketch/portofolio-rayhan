@@ -1,0 +1,30 @@
+// SCSS Design Tokens
+$bg-dark: #0b0e14;
+$bg-card: #131722;
+$bg-card-hover: #181e2b;
+$bg-soft: #1a202c;
+
+$brand-lime: #b4e648;
+$brand-lime-hover: #c5f25a;
+$brand-lime-glow: rgba(180, 230, 72, 0.22);
+$brand-lime-subtle: rgba(180, 230, 72, 0.1);
+
+$text-primary: #f8fafc;
+$text-secondary: #cbd5e1;
+$text-muted: #8896aa;
+
+$line: rgba(255, 255, 255, 0.08);
+$line-strong: rgba(255, 255, 255, 0.16);
+$line-lime: rgba(180, 230, 72, 0.3);
+
+$radius-sm: 8px;
+$radius-md: 12px;
+$radius-lg: 18px;
+$radius-xl: 24px;
+
+$header-height: 68px;
+$header-height-md: 74px;
+$transition-default: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+$font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
