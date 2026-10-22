@@ -10,7 +10,6 @@ export interface ProjectItem {
   imageAlt?: string;
   isPlaceholder?: boolean;
   placeholderTitle?: string;
-  savingsPreview?: boolean;
   previewNote: string;
   githubUrl: string;
 }

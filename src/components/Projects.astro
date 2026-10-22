@@ -1,5 +1,6 @@
 ---
 import type { ProjectItem } from '../types';
+import savingsPreview from '../../images/Sistem-Tabungan.png';
 
 const projects: ProjectItem[] = [
   {
@@ -36,7 +37,8 @@ const projects: ProjectItem[] = [
       accent: 'Keuangan',
       muted: ['Dashboard', 'Tabungan']
     },
-    savingsPreview: true,
+    image: savingsPreview.src,
+    imageAlt: 'Dashboard Sistem Tabungan yang menampilkan ringkasan saldo, pemasukan, pengeluaran, dan target tabungan',
     previewNote: 'Pratinjau dashboard',
     githubUrl: 'https://github.com/rayhanmaulana0203-sketch'
   }
@@ -57,27 +59,7 @@ const projects: ProjectItem[] = [
         <div class="project-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {projects.map((project) => (
                 <article class="project-card flex flex-col rounded-2xl overflow-hidden group">
-                    {project.savingsPreview ? (
-                        <div class="project-image savings-project-preview" role="img" aria-label="Pratinjau sistem tabungan dengan ringkasan saldo, pemasukan, pengeluaran, dan target">
-                            <div class="savings-preview-heading">
-                                <span>Ringkasan keuangan</span>
-                                <span class="savings-preview-date">Hari ini</span>
-                            </div>
-                            <div class="savings-preview-total">
-                                <span>Total tabungan saat ini</span>
-                                <strong>Rp 0</strong>
-                                <div class="savings-preview-monthly">
-                                    <span>Pemasukan bulan ini <b>Rp 0</b></span>
-                                    <span>Pengeluaran bulan ini <b>Rp 0</b></span>
-                                </div>
-                            </div>
-                            <div class="savings-preview-stats">
-                                <div><span>Total pemasukan</span><strong>Rp 0</strong></div>
-                                <div><span>Total pengeluaran</span><strong>Rp 0</strong></div>
-                                <div><span>Target tercapai</span><strong>0 target</strong></div>
-                            </div>
-                        </div>
-                    ) : project.isPlaceholder ? (
+                    {project.isPlaceholder ? (
                         <div class="project-image project-placeholder" aria-hidden="true">
                             <div class="placeholder-graphic">
                                 <i data-lucide="compass" class="w-12 h-12"></i>
