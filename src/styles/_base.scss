@@ -25,6 +25,15 @@ body {
   font-family: $font-sans;
 }
 
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: #0b0e14;
+  content: '';
+  pointer-events: none;
+}
+
 ::selection {
   background: $brand-lime;
   color: $bg-dark;
@@ -71,7 +80,7 @@ a:focus-visible, button:focus-visible {
   height: 100vh;
   pointer-events: none;
   z-index: -1;
-  opacity: 0.95;
+  opacity: 0.88;
 }
 
 .ambient-glow {

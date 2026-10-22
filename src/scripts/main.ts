@@ -20,10 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const starfield = new StarfieldCanvas({
     canvasId: 'bg-canvas',
-    particleCountMobile: 650,
-    particleCountDesktop: 1400,
-    colorA: '#b4e648',
-    colorB: '#38bdf8'
+    particleCountMobile: 360,
+    particleCountDesktop: 780,
+    colorA: '#6f9ac4',
+    colorB: '#a5c6e8'
   });
   starfield.init();
 });

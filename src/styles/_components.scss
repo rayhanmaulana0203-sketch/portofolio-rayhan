@@ -131,6 +131,11 @@
 .hero-section {
   padding-top: calc(#{$header-height} + 2.5rem);
 
+  @media (min-width: 1200px) {
+    padding-top: calc(#{$header-height} + 2.75rem);
+    padding-bottom: 2.25rem;
+  }
+
   @include mobile {
     padding-top: calc(#{$header-height} + 1.75rem);
     padding-bottom: 48px;
@@ -138,11 +143,17 @@
 }
 
 .hero-title {
-  font-size: clamp(2.4rem, 6.5vw, 4.8rem);
+  font-size: clamp(2.4rem, 6.2vw, 6.5rem);
   line-height: 1.05;
   color: $text-primary;
   overflow-wrap: break-word;
   word-break: break-word;
+
+  .hero-section & {
+    @media (min-width: 1200px) {
+      margin-bottom: 1.5rem;
+    }
+  }
 
   @include mobile {
     font-size: clamp(2rem, 8.5vw, 2.75rem);
@@ -150,12 +161,29 @@
 }
 
 .hero-sub {
-  font-size: clamp(1.2rem, 3vw, 1.85rem);
+  font-size: clamp(1.2rem, 2.35vw, 2.5rem);
   color: $text-secondary;
   line-height: 1.4;
 
+  .hero-section & {
+    @media (min-width: 1200px) {
+      margin-bottom: 2.25rem;
+    }
+  }
+
   @include mobile {
     font-size: clamp(1.1rem, 4.5vw, 1.4rem);
+  }
+}
+
+.hero-desc {
+  .hero-section & {
+    @media (min-width: 1200px) {
+      max-width: 64rem;
+      margin-bottom: 3rem;
+      font-size: 1.65rem;
+      line-height: 1.55;
+    }
   }
 }
 
@@ -166,6 +194,12 @@
 }
 
 .hero-actions {
+  .hero-section & {
+    @media (min-width: 1200px) {
+      gap: 24px;
+    }
+  }
+
   @include mobile {
     flex-direction: column;
     align-items: stretch;
@@ -198,6 +232,14 @@
     justify-content: center;
     text-align: center;
   }
+
+  .hero-section & {
+    @media (min-width: 1200px) {
+      min-height: 72px;
+      padding: 0 36px;
+      font-size: 1.25rem;
+    }
+  }
 }
 
 .hero-secondary {
@@ -224,6 +266,14 @@
     justify-content: center;
     text-align: center;
   }
+
+  .hero-section & {
+    @media (min-width: 1200px) {
+      min-height: 72px;
+      padding: 0 36px;
+      font-size: 1.25rem;
+    }
+  }
 }
 
 .social-btn {
@@ -242,6 +292,18 @@
     border-color: $line-lime;
     background: rgba(180, 230, 72, 0.05);
     transform: translateY(-2px);
+  }
+
+  @media (min-width: 1200px) {
+    width: 66px;
+    height: 66px;
+    border-radius: 18px;
+  }
+}
+
+.hero-section .hero-social {
+  @media (min-width: 1200px) {
+    margin-top: 3rem;
   }
 }
 
@@ -638,6 +700,98 @@
 .project-placeholder {
   @include flex-center;
   background: radial-gradient(circle at 50% 40%, rgba(180, 230, 72, 0.08), #0d1017 80%);
+}
+
+.savings-project-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: #f5f7f3;
+  color: #183326;
+  font-family: inherit;
+}
+
+.savings-preview-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #24382e;
+  font-size: clamp(0.55rem, 1.1vw, 0.75rem);
+  font-weight: 700;
+}
+
+.savings-preview-date {
+  color: #738078;
+  font-size: 0.62rem;
+  font-weight: 500;
+}
+
+.savings-preview-total {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 12px;
+  border-radius: 10px;
+  background: linear-gradient(115deg, #315f46, #548c68);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.62rem;
+
+  > strong {
+    color: #fff;
+    font-size: clamp(1.2rem, 2.8vw, 2rem);
+    line-height: 1.1;
+  }
+}
+
+.savings-preview-monthly {
+  display: flex;
+  gap: 16px;
+  margin-top: 4px;
+  font-size: 0.55rem;
+
+  span,
+  b {
+    display: block;
+  }
+
+  b {
+    margin-top: 2px;
+    color: #fff;
+    font-size: 0.65rem;
+  }
+}
+
+.savings-preview-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+
+  div {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 5px;
+    padding: 9px;
+    border: 1px solid #e5eae4;
+    border-radius: 9px;
+    background: #fff;
+  }
+
+  span {
+    overflow: hidden;
+    color: #718078;
+    font-size: 0.52rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  strong {
+    color: #183326;
+    font-size: clamp(0.62rem, 1.2vw, 0.85rem);
+  }
 }
 
 .placeholder-graphic {

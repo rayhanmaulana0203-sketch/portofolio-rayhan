@@ -79,7 +79,7 @@ export class StarfieldCanvas {
       uniforms: {
         uTime: { value: 0 },
         uPixelRatio: { value: Math.min(window.devicePixelRatio, 2) },
-        uSize: { value: isMobile ? 32.0 : 26.0 },
+        uSize: { value: isMobile ? 0.38 : 0.32 },
         uColorA: { value: new THREE.Color(this.options.colorA ?? '#b4e648') },
         uColorB: { value: new THREE.Color(this.options.colorB ?? '#38bdf8') }
       },
