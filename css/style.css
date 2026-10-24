@@ -764,15 +764,18 @@ a:focus-visible, button:focus-visible {
 .project-image {
     position: relative;
     width: 100%;
+    aspect-ratio: 16 / 9;
     background: #0d1017;
     border-bottom: 1px solid var(--line);
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .project-image img {
     width: 100%;
-    height: auto;
-    display: block;
+    height: 100%;
     object-fit: contain;
     transition: transform 0.4s ease;
 }
@@ -785,7 +788,7 @@ a:focus-visible, button:focus-visible {
     display: flex;
     align-items: center;
     justify-content: center;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 16 / 9;
     background: radial-gradient(circle at 50% 40%, rgba(180, 230, 72, 0.08), #0d1017 80%);
 }
 
