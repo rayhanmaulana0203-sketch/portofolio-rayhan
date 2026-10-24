@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Rayhan logo">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#B4E648"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#0B0E14"/>
+  <path d="M20 44V20h8.5c6.6 0 10.5 3.4 10.5 9.5S35.1 39 28.5 39H20zm8.5-6.5c3.5 0 5.2-1.6 5.2-4.5s-1.7-4.5-5.2-4.5H25v9h3.5z" fill="url(#g)"/>
+  <path d="M39 20h6v24h-6z" fill="#B4E648"/>
+</svg>

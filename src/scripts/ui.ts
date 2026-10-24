@@ -9,19 +9,25 @@ export function initIcons(): void {
 
 export function initTypewriter(): void {
   const typedElement = document.getElementById('typed');
-  if (typedElement && typeof Typed !== 'undefined') {
-    new Typed('#typed', {
-      strings: [
-        'Web Developer.',
-        'UI/UX Enthusiast.',
-        'Frontend Builder.'
-      ],
-      typeSpeed: 60,
-      backSpeed: 35,
-      backDelay: 1600,
-      loop: true
-    });
+
+  if (!typedElement) return;
+
+  if (typeof Typed === 'undefined') {
+    typedElement.textContent = 'Web Developer.';
+    return;
   }
+
+  new Typed('#typed', {
+    strings: [
+      'Web Developer.',
+      'UI/UX Enthusiast.',
+      'Frontend Builder.'
+    ],
+    typeSpeed: 60,
+    backSpeed: 35,
+    backDelay: 1600,
+    loop: true
+  });
 }
 
 export function initMobileNav(): void {
@@ -94,21 +100,26 @@ export function initScrollspy(): void {
 
   const updateActiveNav = (): void => {
     const scrollPosition = window.scrollY + 120;
+    let activeSectionId: string | null = null;
 
     sections.forEach((section) => {
       const sectionTop = section.offsetTop;
       const sectionHeight = section.offsetHeight;
       const sectionId = section.getAttribute('id');
 
-      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-        navLinks.forEach((link) => {
-          const href = link.getAttribute('href');
-          if (href === `#${sectionId}`) {
-            link.classList.add('active');
-          } else {
-            link.classList.remove('active');
-          }
-        });
+      if (sectionId && scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        activeSectionId = sectionId;
+      }
+    });
+
+    navLinks.forEach((link) => {
+      const href = link.getAttribute('href');
+      const isActive = href === `#${activeSectionId}`;
+      link.classList.toggle('active', isActive);
+      if (isActive) {
+        link.setAttribute('aria-current', 'page');
+      } else {
+        link.removeAttribute('aria-current');
       }
     });
   };
