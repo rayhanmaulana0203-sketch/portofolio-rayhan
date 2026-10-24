@@ -151,7 +151,8 @@
 
   .hero-section & {
     @media (min-width: 1200px) {
-      margin-bottom: 1.5rem;
+      font-size: clamp(2.75rem, 5vw, 4.75rem);
+      margin-bottom: 1rem;
     }
   }
 
@@ -167,7 +168,8 @@
 
   .hero-section & {
     @media (min-width: 1200px) {
-      margin-bottom: 2.25rem;
+      font-size: 1.65rem;
+      margin-bottom: 1.5rem;
     }
   }
 
@@ -179,10 +181,10 @@
 .hero-desc {
   .hero-section & {
     @media (min-width: 1200px) {
-      max-width: 64rem;
-      margin-bottom: 3rem;
-      font-size: 1.65rem;
-      line-height: 1.55;
+      max-width: 52rem;
+      margin-bottom: 2rem;
+      font-size: 1.25rem;
+      line-height: 1.6;
     }
   }
 }
@@ -196,7 +198,7 @@
 .hero-actions {
   .hero-section & {
     @media (min-width: 1200px) {
-      gap: 24px;
+      gap: 18px;
     }
   }
 
@@ -276,9 +278,9 @@
 
   .hero-section & {
     @media (min-width: 1200px) {
-      min-height: 72px;
-      padding: 0 36px;
-      font-size: 1.25rem;
+      min-height: 60px;
+      padding: 0 28px;
+      font-size: 1.05rem;
     }
   }
 }
@@ -310,9 +312,9 @@
 
   .hero-section & {
     @media (min-width: 1200px) {
-      min-height: 72px;
-      padding: 0 36px;
-      font-size: 1.25rem;
+      min-height: 60px;
+      padding: 0 28px;
+      font-size: 1.05rem;
     }
   }
 }
@@ -336,15 +338,15 @@
   }
 
   @media (min-width: 1200px) {
-    width: 66px;
-    height: 66px;
-    border-radius: 18px;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
   }
 }
 
 .hero-section .hero-social {
   @media (min-width: 1200px) {
-    margin-top: 3rem;
+    margin-top: 2rem;
   }
 }
 
