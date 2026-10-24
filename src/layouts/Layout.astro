@@ -13,7 +13,7 @@ const {
 ---
 
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,15 +27,16 @@ const {
 
     <script is:inline src="https://unpkg.com/lucide@latest"></script>
     <script is:inline src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script is:inline src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-[#0b0e14] text-white font-sans antialiased overflow-x-hidden relative">
-    <canvas id="bg-canvas" class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none" aria-hidden="true"></canvas>
+<body>
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
     <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
     <div class="ambient-glow" aria-hidden="true"></div>
 
     <slot />
 
-    <script src="../scripts/main.ts"></script>
+    <script>
+      import '../scripts/main.ts';
+    </script>
 </body>
 </html>
