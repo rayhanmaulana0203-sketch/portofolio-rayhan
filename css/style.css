@@ -302,21 +302,23 @@ a:focus-visible, button:focus-visible {
 .hero-secondary {
     display: inline-flex;
     align-items: center;
-    padding: 13px 24px;
-    background: rgba(255, 255, 255, 0.03);
+    justify-content: center;
+    padding: 12px 24px;
+    background: transparent;
+    color: var(--text-primary);
     border: 1px solid var(--line-strong);
-    color: var(--text-primary) !important;
-    font-size: 0.9rem;
     font-weight: 600;
     border-radius: var(--radius-md);
     text-decoration: none;
-    transition: transform var(--transition), border-color var(--transition), background var(--transition);
+    transition: all var(--transition);
 }
 
-.hero-secondary:hover {
-    background: rgba(255, 255, 255, 0.07);
-    border-color: var(--line-lime);
-    transform: translateY(-2px);
+/* Berwarna hijau HANYA saat tombol ditekan/diklik */
+.hero-secondary:active {
+    background: var(--brand-lime);
+    color: #0b0e14;
+    border-color: var(--brand-lime);
+    transform: scale(0.98);
 }
 
 .social-btn {
@@ -764,24 +766,28 @@ a:focus-visible, button:focus-visible {
 .project-image {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;
-    background: #0d1017;
+    aspect-ratio: 16 / 10;
+    background: #080b11;
     border-bottom: 1px solid var(--line);
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 12px 14px;
 }
 
 .project-image img {
     width: 100%;
     height: 100%;
+    max-height: 100%;
     object-fit: contain;
-    transition: transform 0.4s ease;
+    object-position: center;
+    border-radius: var(--radius-sm);
+    transition: transform 0.3s ease;
 }
 
 .project-card:hover .project-image img {
-    transform: scale(1.03);
+    transform: scale(1.02);
 }
 
 .project-placeholder {
@@ -1145,11 +1151,25 @@ a:focus-visible, button:focus-visible {
         width: 100%;
     }
 
-    .hero-primary,
-    .hero-secondary {
-        width: 100%;
-        justify-content: center;
-        text-align: center;
+    .hero-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--line-strong);
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all var(--transition);
+    }
+
+    .hero-primary:hover,
+    .hero-primary:active {
+    background: var(--brand-lime);
+    color: #0b0e14;
+    border-color: var(--brand-lime);
     }
 
     .skills-grid {
