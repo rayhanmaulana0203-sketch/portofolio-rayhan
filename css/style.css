@@ -482,6 +482,22 @@ a:focus-visible, button:focus-visible {
     transition: opacity var(--transition);
 }
 
+.hidden {
+  display: none !important;
+}
+
+#mobile-menu.hidden {
+  display: none !important;
+}
+
+#more-text.hidden {
+  display: none !important;
+}
+
+#more-text:not(.hidden) {
+  display: block !important;
+}
+
 .read-more-btn:hover {
     opacity: 0.85;
 }

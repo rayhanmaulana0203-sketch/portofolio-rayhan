@@ -42,35 +42,76 @@
                     </div>
                 </div>
 
-                <button id="read-more-btn" onclick="toggleReadMore()" aria-expanded="false" aria-controls="more-text" class="read-more-btn mt-4 text-sm font-semibold inline-flex items-center gap-1.5 focus:outline-none cursor-pointer">
+                <button id="read-more-btn" type="button" onclick="toggleReadMore(event)" aria-expanded="false" aria-controls="more-text" class="read-more-btn mt-4 text-sm font-semibold inline-flex items-center gap-1.5 focus:outline-none cursor-pointer">
                     <span id="read-more-text">Lanjut baca</span>
                     <i id="read-more-icon" data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
                 </button>
 
                 <script is:inline>
-                  function toggleReadMore() {
-                    var moreText = document.getElementById('more-text');
-                    var btnText = document.getElementById('read-more-text');
-                    var btnIcon = document.getElementById('read-more-icon');
-                    var readMoreBtn = document.getElementById('read-more-btn') || document.querySelector('[aria-controls="more-text"]');
+                  (function() {
+                    var lastToggleTime = 0;
+                    function toggleReadMore(e) {
+                      if (e) {
+                        if (typeof e.preventDefault === 'function') e.preventDefault();
+                        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+                      }
+                      var now = Date.now();
+                      if (now - lastToggleTime < 200) return;
+                      lastToggleTime = now;
 
-                    if (!moreText || !btnText || !btnIcon) return;
+                      var moreText = document.getElementById('more-text');
+                      if (!moreText) return;
 
-                    if (moreText.classList.contains('hidden')) {
-                      moreText.classList.remove('hidden');
-                      btnText.innerText = 'Sembunyikan';
-                      if (readMoreBtn) readMoreBtn.setAttribute('aria-expanded', 'true');
-                      btnIcon.style.transform = 'rotate(180deg)';
-                    } else {
-                      moreText.classList.add('hidden');
-                      btnText.innerText = 'Lanjut baca';
-                      if (readMoreBtn) readMoreBtn.setAttribute('aria-expanded', 'false');
-                      btnIcon.style.transform = 'rotate(0deg)';
+                      var readMoreBtn = document.getElementById('read-more-btn') || document.querySelector('[aria-controls="more-text"]');
+                      var btnText = document.getElementById('read-more-text') || (readMoreBtn ? readMoreBtn.querySelector('span') : null);
+                      var btnIcon = document.getElementById('read-more-icon') || (readMoreBtn ? readMoreBtn.querySelector('svg, i, [data-lucide]') : null);
+
+                      var isHidden = moreText.classList.contains('hidden') ||
+                                     moreText.style.display === 'none' ||
+                                     (window.getComputedStyle ? window.getComputedStyle(moreText).display === 'none' : false);
+
+                      if (isHidden) {
+                        moreText.classList.remove('hidden');
+                        moreText.style.display = 'block';
+                        if (readMoreBtn) readMoreBtn.setAttribute('aria-expanded', 'true');
+                        if (btnText) btnText.textContent = 'Sembunyikan';
+                        if (btnIcon) {
+                          btnIcon.style.transform = 'rotate(180deg)';
+                          btnIcon.style.transition = 'transform 0.3s ease';
+                        }
+                      } else {
+                        moreText.classList.add('hidden');
+                        moreText.style.display = 'none';
+                        if (readMoreBtn) readMoreBtn.setAttribute('aria-expanded', 'false');
+                        if (btnText) btnText.textContent = 'Lanjut baca';
+                        if (btnIcon) {
+                          btnIcon.style.transform = 'rotate(0deg)';
+                          btnIcon.style.transition = 'transform 0.3s ease';
+                        }
+                      }
                     }
-                  }
-                  if (typeof window !== 'undefined') {
-                    window.toggleReadMore = toggleReadMore;
-                  }
+
+                    if (typeof window !== 'undefined') {
+                      window.toggleReadMore = toggleReadMore;
+                    }
+
+                    function initButton() {
+                      var btn = document.getElementById('read-more-btn') || document.querySelector('[aria-controls="more-text"]');
+                      if (!btn) return;
+                      if (!btn.dataset.bound) {
+                        btn.dataset.bound = 'true';
+                        btn.addEventListener('click', function(e) {
+                          toggleReadMore(e);
+                        });
+                      }
+                    }
+
+                    if (document.readyState === 'loading') {
+                      document.addEventListener('DOMContentLoaded', initButton);
+                    } else {
+                      initButton();
+                    }
+                  })();
                 </script>
 
                 <div class="mt-8">

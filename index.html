@@ -108,7 +108,7 @@
                     <div class="lg:col-span-5 flex justify-center">
                         <div class="about-photo-card">
                             <div class="about-photo-wrapper">
-                                <img src="images/foto saya.jpeg" alt="Potret Muhamad Rayhan Maulana" class="profile-img" loading="lazy">
+                                <img src="/images/foto saya.jpeg" alt="Potret Muhamad Rayhan Maulana" class="profile-img" loading="lazy">
                             </div>
                         </div>
                     </div>
@@ -135,10 +135,77 @@
                             </div>
                         </div>
 
-                        <button id="read-more-btn" onclick="toggleReadMore()" aria-expanded="false" aria-controls="more-text" class="read-more-btn mt-4 text-sm font-semibold inline-flex items-center gap-1.5 focus:outline-none cursor-pointer">
+                        <button id="read-more-btn" type="button" onclick="toggleReadMore(event)" aria-expanded="false" aria-controls="more-text" class="read-more-btn mt-4 text-sm font-semibold inline-flex items-center gap-1.5 focus:outline-none cursor-pointer">
                             <span id="read-more-text">Lanjut baca</span>
                             <i id="read-more-icon" data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
                         </button>
+
+                        <script>
+                          (function() {
+                            var lastToggleTime = 0;
+                            function toggleReadMore(e) {
+                              if (e) {
+                                if (typeof e.preventDefault === 'function') e.preventDefault();
+                                if (typeof e.stopPropagation === 'function') e.stopPropagation();
+                              }
+                              var now = Date.now();
+                              if (now - lastToggleTime < 200) return;
+                              lastToggleTime = now;
+
+                              var moreText = document.getElementById('more-text');
+                              if (!moreText) return;
+
+                              var readMoreBtn = document.getElementById('read-more-btn') || document.querySelector('[aria-controls="more-text"]');
+                              var btnText = document.getElementById('read-more-text') || (readMoreBtn ? readMoreBtn.querySelector('span') : null);
+                              var btnIcon = document.getElementById('read-more-icon') || (readMoreBtn ? readMoreBtn.querySelector('svg, i, [data-lucide]') : null);
+
+                              var isHidden = moreText.classList.contains('hidden') ||
+                                             moreText.style.display === 'none' ||
+                                             (window.getComputedStyle ? window.getComputedStyle(moreText).display === 'none' : false);
+
+                              if (isHidden) {
+                                moreText.classList.remove('hidden');
+                                moreText.style.display = 'block';
+                                if (readMoreBtn) readMoreBtn.setAttribute('aria-expanded', 'true');
+                                if (btnText) btnText.textContent = 'Sembunyikan';
+                                if (btnIcon) {
+                                  btnIcon.style.transform = 'rotate(180deg)';
+                                  btnIcon.style.transition = 'transform 0.3s ease';
+                                }
+                              } else {
+                                moreText.classList.add('hidden');
+                                moreText.style.display = 'none';
+                                if (readMoreBtn) readMoreBtn.setAttribute('aria-expanded', 'false');
+                                if (btnText) btnText.textContent = 'Lanjut baca';
+                                if (btnIcon) {
+                                  btnIcon.style.transform = 'rotate(0deg)';
+                                  btnIcon.style.transition = 'transform 0.3s ease';
+                                }
+                              }
+                            }
+
+                            if (typeof window !== 'undefined') {
+                              window.toggleReadMore = toggleReadMore;
+                            }
+
+                            function initButton() {
+                              var btn = document.getElementById('read-more-btn') || document.querySelector('[aria-controls="more-text"]');
+                              if (!btn) return;
+                              if (!btn.dataset.bound) {
+                                btn.dataset.bound = 'true';
+                                btn.addEventListener('click', function(e) {
+                                  toggleReadMore(e);
+                                });
+                              }
+                            }
+
+                            if (document.readyState === 'loading') {
+                              document.addEventListener('DOMContentLoaded', initButton);
+                            } else {
+                              initButton();
+                            }
+                          })();
+                        </script>
 
                         <div class="mt-8">
                             <a href="#contact" class="about-collab-link inline-flex items-center gap-2 text-base font-bold pb-1 transition">
@@ -258,7 +325,7 @@
                         </div>
                         <h3>Soft Skills &amp; Kolaborasi</h3>
                         <p>Mengandalkan komunikasi aktif, problem solving, dan manajemen waktu saat bekerja secara mandiri maupun tim.</p>
-                        <div class="skill-tags" aria-label="Keahlian dan tools pendukung">
+                        <div class="skill-tags" aria-label="Keahlian Soft Skills & Kolaborasi">
                             <span>Problem Solving</span>
                             <span>Adaptabilitas</span>
                             <span>Manajemen Waktu</span>
@@ -284,7 +351,7 @@
                     <!-- Project 1 -->
                     <article class="project-card flex flex-col rounded-2xl overflow-hidden group">
                         <div class="project-image">
-                            <img src="images/Website E Commerce.png" alt="Tampilan halaman utama toko buah dengan katalog produk" loading="lazy">
+                            <img src="/images/Website E Commerce.png" alt="Tampilan halaman utama toko buah dengan katalog produk" loading="lazy">
                         </div>
                         <div class="project-content p-6 flex flex-col justify-between flex-1">
                             <div>
@@ -312,7 +379,7 @@
                     <!-- Project 2 -->
                     <article class="project-card flex flex-col rounded-2xl overflow-hidden group">
                         <div class="project-image">
-                            <img src="images/math-ceria-preview.png" alt="Pratinjau website Math Ceria untuk belajar matematika dengan cara menyenangkan" loading="lazy">
+                            <img src="/images/math-ceria-preview.png" alt="Pratinjau website Math Ceria untuk belajar matematika dengan cara menyenangkan" loading="lazy">
                         </div>
                         <div class="project-content p-6 flex flex-col justify-between flex-1">
                             <div>
@@ -340,7 +407,7 @@
                     <!-- Project 3 -->
                     <article class="project-card flex flex-col rounded-2xl overflow-hidden group">
                         <div class="project-image">
-                            <img src="images/Sistem-Tabungan.png" alt="Dashboard Sistem Tabungan yang menampilkan ringkasan saldo, pemasukan, pengeluaran, dan target tabungan" loading="lazy">
+                            <img src="/images/Sistem-Tabungan.png" alt="Dashboard Sistem Tabungan yang menampilkan ringkasan saldo, pemasukan, pengeluaran, dan target tabungan" loading="lazy">
                         </div>
                         <div class="project-content p-6 flex flex-col justify-between flex-1">
                             <div>

@@ -196,29 +196,52 @@ export function initCopyEmail(): void {
   });
 }
 
-export function toggleReadMore(): void {
+let lastToggleTime = 0;
+
+export function toggleReadMore(event?: Event): void {
+  if (event) {
+    if (typeof event.preventDefault === 'function') event.preventDefault();
+    if (typeof event.stopPropagation === 'function') event.stopPropagation();
+  }
+
+  const now = Date.now();
+  if (now - lastToggleTime < 200) return;
+  lastToggleTime = now;
+
   const moreText = document.getElementById('more-text');
-  const btnText = document.getElementById('read-more-text');
-  const btnIcon = document.getElementById('read-more-icon');
+  if (!moreText) return;
+
   const readMoreBtn = document.getElementById('read-more-btn') || document.querySelector<HTMLButtonElement>('[aria-controls="more-text"]');
+  const btnText = document.getElementById('read-more-text') || (readMoreBtn ? readMoreBtn.querySelector<HTMLElement>('span') : null);
+  const btnIcon = document.getElementById('read-more-icon') || (readMoreBtn ? readMoreBtn.querySelector<HTMLElement>('svg, i, [data-lucide]') : null);
 
-  if (!moreText || !btnText || !btnIcon) return;
+  const isHidden = moreText.classList.contains('hidden') ||
+                   moreText.style.display === 'none' ||
+                   (window.getComputedStyle ? window.getComputedStyle(moreText).display === 'none' : false);
 
-  if (moreText.classList.contains('hidden')) {
+  if (isHidden) {
     moreText.classList.remove('hidden');
-    btnText.innerText = 'Sembunyikan';
-    readMoreBtn?.setAttribute('aria-expanded', 'true');
-    btnIcon.style.transform = 'rotate(180deg)';
+    moreText.style.display = 'block';
+    if (readMoreBtn) readMoreBtn.setAttribute('aria-expanded', 'true');
+    if (btnText) btnText.textContent = 'Sembunyikan';
+    if (btnIcon) {
+      btnIcon.style.transform = 'rotate(180deg)';
+      btnIcon.style.transition = 'transform 0.3s ease';
+    }
   } else {
     moreText.classList.add('hidden');
-    btnText.innerText = 'Lanjut baca';
-    readMoreBtn?.setAttribute('aria-expanded', 'false');
-    btnIcon.style.transform = 'rotate(0deg)';
+    moreText.style.display = 'none';
+    if (readMoreBtn) readMoreBtn.setAttribute('aria-expanded', 'false');
+    if (btnText) btnText.textContent = 'Lanjut baca';
+    if (btnIcon) {
+      btnIcon.style.transform = 'rotate(0deg)';
+      btnIcon.style.transition = 'transform 0.3s ease';
+    }
   }
 }
 
 if (typeof window !== 'undefined') {
-  (window as unknown as { toggleReadMore: () => void }).toggleReadMore = toggleReadMore;
+  (window as unknown as { toggleReadMore: (e?: Event) => void }).toggleReadMore = toggleReadMore;
 }
 
 export function initReadMore(): void {
@@ -226,14 +249,11 @@ export function initReadMore(): void {
   if (readMoreBtn && !readMoreBtn.dataset.bound) {
     readMoreBtn.dataset.bound = 'true';
     readMoreBtn.addEventListener('click', (e) => {
-      if (!readMoreBtn.getAttribute('onclick')) {
-        e.preventDefault();
-        toggleReadMore();
-      }
+      toggleReadMore(e);
     });
   }
 
   if (typeof window !== 'undefined') {
-    (window as unknown as { toggleReadMore: () => void }).toggleReadMore = toggleReadMore;
+    (window as unknown as { toggleReadMore: (e?: Event) => void }).toggleReadMore = toggleReadMore;
   }
 }

@@ -47,11 +47,11 @@ const timeline: TimelineItem[] = [
 
         <div class="timeline academic-timeline">
             {timeline.map((item) => (
-                <article class={`timeline-item ${item.isCurrent ? 'timeline-item-current' : ''}`}>
+                <article class={`timeline-item${item.isCurrent ? ' timeline-item-current' : ''}`}>
                     <div class="timeline-dot" aria-hidden="true"></div>
                     <div class="timeline-content">
                         <div class="timeline-card-heading">
-                            <span class={`timeline-icon ${item.isSecondaryIcon ? 'timeline-icon-secondary' : ''}`}>
+                            <span class={`timeline-icon${item.isSecondaryIcon ? ' timeline-icon-secondary' : ''}`}>
                                 <i data-lucide={item.icon} class="w-5 h-5" aria-hidden="true"></i>
                             </span>
                             <span class="timeline-period">{item.period}</span>
