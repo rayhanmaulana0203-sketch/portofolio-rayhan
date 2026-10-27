@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+function initScript() {
     const refreshIcons = () => {
         if (typeof lucide !== 'undefined') {
             lucide.createIcons();
@@ -253,14 +253,19 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     initStarfield();
-});
+}
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initScript);
+} else {
+    initScript();
+}
 
 // Expand/collapse about section extended bio
 function toggleReadMore() {
     const moreText = document.getElementById('more-text');
     const btnText = document.getElementById('read-more-text');
     const btnIcon = document.getElementById('read-more-icon');
-    const readMoreBtn = document.querySelector('[aria-controls="more-text"]');
+    const readMoreBtn = document.getElementById('read-more-btn') || document.querySelector('[aria-controls="more-text"]');
 
     if (!moreText || !btnText || !btnIcon) return;
 

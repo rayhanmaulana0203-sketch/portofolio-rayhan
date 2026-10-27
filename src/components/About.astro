@@ -42,10 +42,36 @@
                     </div>
                 </div>
 
-                <button onclick="toggleReadMore()" aria-expanded="false" aria-controls="more-text" class="read-more-btn mt-4 text-sm font-semibold inline-flex items-center gap-1.5 focus:outline-none cursor-pointer">
+                <button id="read-more-btn" onclick="toggleReadMore()" aria-expanded="false" aria-controls="more-text" class="read-more-btn mt-4 text-sm font-semibold inline-flex items-center gap-1.5 focus:outline-none cursor-pointer">
                     <span id="read-more-text">Lanjut baca</span>
                     <i id="read-more-icon" data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
                 </button>
+
+                <script is:inline>
+                  function toggleReadMore() {
+                    var moreText = document.getElementById('more-text');
+                    var btnText = document.getElementById('read-more-text');
+                    var btnIcon = document.getElementById('read-more-icon');
+                    var readMoreBtn = document.getElementById('read-more-btn') || document.querySelector('[aria-controls="more-text"]');
+
+                    if (!moreText || !btnText || !btnIcon) return;
+
+                    if (moreText.classList.contains('hidden')) {
+                      moreText.classList.remove('hidden');
+                      btnText.innerText = 'Sembunyikan';
+                      if (readMoreBtn) readMoreBtn.setAttribute('aria-expanded', 'true');
+                      btnIcon.style.transform = 'rotate(180deg)';
+                    } else {
+                      moreText.classList.add('hidden');
+                      btnText.innerText = 'Lanjut baca';
+                      if (readMoreBtn) readMoreBtn.setAttribute('aria-expanded', 'false');
+                      btnIcon.style.transform = 'rotate(0deg)';
+                    }
+                  }
+                  if (typeof window !== 'undefined') {
+                    window.toggleReadMore = toggleReadMore;
+                  }
+                </script>
 
                 <div class="mt-8">
                     <a href="#contact" class="about-collab-link inline-flex items-center gap-2 text-base font-bold pb-1 transition">

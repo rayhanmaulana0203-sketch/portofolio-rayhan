@@ -196,31 +196,44 @@ export function initCopyEmail(): void {
   });
 }
 
-export function initReadMore(): void {
+export function toggleReadMore(): void {
   const moreText = document.getElementById('more-text');
   const btnText = document.getElementById('read-more-text');
   const btnIcon = document.getElementById('read-more-icon');
-  const readMoreBtn = document.querySelector<HTMLButtonElement>('[aria-controls="more-text"]');
+  const readMoreBtn = document.getElementById('read-more-btn') || document.querySelector<HTMLButtonElement>('[aria-controls="more-text"]');
 
-  const toggle = (): void => {
-    if (!moreText || !btnText || !btnIcon) return;
+  if (!moreText || !btnText || !btnIcon) return;
 
-    if (moreText.classList.contains('hidden')) {
-      moreText.classList.remove('hidden');
-      btnText.innerText = 'Sembunyikan';
-      readMoreBtn?.setAttribute('aria-expanded', 'true');
-      btnIcon.style.transform = 'rotate(180deg)';
-    } else {
-      moreText.classList.add('hidden');
-      btnText.innerText = 'Lanjut baca';
-      readMoreBtn?.setAttribute('aria-expanded', 'false');
-      btnIcon.style.transform = 'rotate(0deg)';
-    }
-  };
+  if (moreText.classList.contains('hidden')) {
+    moreText.classList.remove('hidden');
+    btnText.innerText = 'Sembunyikan';
+    readMoreBtn?.setAttribute('aria-expanded', 'true');
+    btnIcon.style.transform = 'rotate(180deg)';
+  } else {
+    moreText.classList.add('hidden');
+    btnText.innerText = 'Lanjut baca';
+    readMoreBtn?.setAttribute('aria-expanded', 'false');
+    btnIcon.style.transform = 'rotate(0deg)';
+  }
+}
 
-  readMoreBtn?.addEventListener('click', toggle);
+if (typeof window !== 'undefined') {
+  (window as unknown as { toggleReadMore: () => void }).toggleReadMore = toggleReadMore;
+}
+
+export function initReadMore(): void {
+  const readMoreBtn = document.getElementById('read-more-btn') || document.querySelector<HTMLButtonElement>('[aria-controls="more-text"]');
+  if (readMoreBtn && !readMoreBtn.dataset.bound) {
+    readMoreBtn.dataset.bound = 'true';
+    readMoreBtn.addEventListener('click', (e) => {
+      if (!readMoreBtn.getAttribute('onclick')) {
+        e.preventDefault();
+        toggleReadMore();
+      }
+    });
+  }
 
   if (typeof window !== 'undefined') {
-    (window as unknown as { toggleReadMore: () => void }).toggleReadMore = toggle;
+    (window as unknown as { toggleReadMore: () => void }).toggleReadMore = toggleReadMore;
   }
 }

@@ -9,7 +9,7 @@ import {
   initReadMore
 } from './ui';
 
-document.addEventListener('DOMContentLoaded', () => {
+function init(): void {
   initIcons();
   initTypewriter();
   initMobileNav();
@@ -30,4 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
   } catch (error) {
     console.warn('Background starfield could not be initialized:', error);
   }
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
