@@ -4,12 +4,14 @@
   background: $bg-card;
   border: 1px solid $line;
   border-radius: $radius-lg;
-  transition: transform $transition-default, border-color $transition-default, box-shadow $transition-default;
+  transition: transform $transition-default, border-color $transition-default, box-shadow $transition-default, background-color $transition-default;
+  position: relative;
 
   &:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
     border-color: $line-lime;
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+    background-color: $bg-card-hover;
+    box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.45), 0 0 24px -4px rgba(180, 230, 72, 0.12);
   }
 }
 

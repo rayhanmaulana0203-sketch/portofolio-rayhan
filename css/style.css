@@ -570,7 +570,7 @@ a:focus-visible, button:focus-visible {
     border: 1px solid var(--line);
     border-radius: var(--radius-lg);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+    transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition), background-color var(--transition);
 }
 
 .timeline-item:nth-child(even) .timeline-content {
@@ -578,11 +578,11 @@ a:focus-visible, button:focus-visible {
 }
 
 .timeline-content:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
+    background-color: var(--bg-card-hover);
     border-color: var(--line-lime);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.45), 0 0 24px -4px rgba(180, 230, 72, 0.12);
 }
-
 .timeline-card-heading {
     display: flex;
     align-items: center;
@@ -748,21 +748,30 @@ a:focus-visible, button:focus-visible {
 .skill-tags span {
     display: inline-flex;
     align-items: center;
-    padding: 5px 10px;
-    border-radius: var(--radius-sm);
-    background: rgba(255, 255, 255, 0.035);
-    border: 1px solid var(--line);
+    padding: 5px 12px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     color: var(--text-secondary);
-    font-size: 0.75rem;
+    font-size: 0.76rem;
     font-weight: 600;
-    transition: border-color var(--transition), color var(--transition);
+    letter-spacing: 0.02em;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all var(--transition);
+}
+
+.skill-tags span:hover {
+    border-color: var(--line-lime);
+    color: var(--brand-lime);
+    background: rgba(180, 230, 72, 0.08);
+    transform: translateY(-1px);
 }
 
 .skill-card:hover .skill-tags span {
-    border-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.14);
     color: var(--text-primary);
 }
-
 /* --------------------------------------------------------------------------
    9. PROJECTS SECTION
    -------------------------------------------------------------------------- */
@@ -770,15 +779,15 @@ a:focus-visible, button:focus-visible {
     background: var(--bg-card);
     border: 1px solid var(--line);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+    transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition), background-color var(--transition);
 }
 
 .project-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
+    background-color: var(--bg-card-hover);
     border-color: var(--line-lime);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 18px 40px -8px rgba(0, 0, 0, 0.5), 0 0 26px -4px rgba(180, 230, 72, 0.15);
 }
-
 .project-image {
     position: relative;
     width: 100%;
@@ -831,22 +840,37 @@ a:focus-visible, button:focus-visible {
 }
 
 .project-tags span {
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 4px 9px;
-    border-radius: var(--radius-sm);
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 9999px;
+    letter-spacing: 0.02em;
+    transition: all var(--transition);
 }
 
 .tag-accent {
-    background: var(--brand-lime-subtle);
-    border: 1px solid var(--line-lime);
+    background: rgba(180, 230, 72, 0.09);
+    border: 1px solid rgba(180, 230, 72, 0.3);
     color: var(--brand-lime);
+    box-shadow: 0 2px 8px rgba(180, 230, 72, 0.06);
+}
+
+.tag-accent:hover {
+    background: rgba(180, 230, 72, 0.16);
+    border-color: var(--brand-lime);
+    transform: translateY(-1px);
 }
 
 .tag-muted {
     background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--line);
+    border: 1px solid rgba(255, 255, 255, 0.09);
     color: var(--text-secondary);
+}
+
+.tag-muted:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--text-primary);
+    transform: translateY(-1px);
 }
 
 .project-title {
@@ -1030,15 +1054,15 @@ a:focus-visible, button:focus-visible {
     border: 1px solid var(--line);
     border-radius: var(--radius-lg);
     text-decoration: none;
-    transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+    transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition), background-color var(--transition);
 }
 
 .social-card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-4px);
+    background-color: var(--bg-card-hover);
     border-color: var(--line-lime);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 14px 32px -6px rgba(0, 0, 0, 0.4), 0 0 20px -4px rgba(180, 230, 72, 0.14);
 }
-
 .social-card-header {
     display: flex;
     align-items: center;
