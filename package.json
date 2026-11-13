@@ -12,7 +12,8 @@
     "start": "astro dev",
     "build": "astro build && node tools/check-site.mjs",
     "preview": "astro preview",
-    "check": "node tools/check-site.mjs"
+    "check": "node tools/check-site.mjs",
+    "deploy": "node tools/deploy-direct.mjs"
   },
   "dependencies": {
     "astro": "^7.4.1",
