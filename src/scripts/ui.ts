@@ -257,3 +257,124 @@ export function initReadMore(): void {
     (window as unknown as { toggleReadMore: (e?: Event) => void }).toggleReadMore = toggleReadMore;
   }
 }
+
+export function initTimelineSlider(): void {
+  const slider = document.getElementById('timeline-slider');
+  const prevBtn = document.getElementById('timeline-prev') as HTMLButtonElement | null;
+  const nextBtn = document.getElementById('timeline-next') as HTMLButtonElement | null;
+  const dotsContainer = document.getElementById('timeline-dots');
+
+  if (!slider) return;
+
+  const cards = Array.from(slider.querySelectorAll<HTMLElement>('.timeline-card'));
+  if (cards.length === 0) return;
+
+  const dots: HTMLButtonElement[] = [];
+  if (dotsContainer) {
+    dotsContainer.innerHTML = '';
+    cards.forEach((_, idx) => {
+      const dot = document.createElement('button');
+      dot.className = `slider-dot ${idx === 0 ? 'active' : ''}`;
+      dot.setAttribute('aria-label', `Lihat riwayat ke-${idx + 1}`);
+      dot.setAttribute('type', 'button');
+      dot.addEventListener('click', () => {
+        const targetCard = cards[idx];
+        if (targetCard) {
+          slider.scrollTo({
+            left: targetCard.offsetLeft - slider.offsetLeft,
+            behavior: 'smooth'
+          });
+        }
+      });
+      dotsContainer.appendChild(dot);
+      dots.push(dot);
+    });
+  }
+
+  const updateControls = () => {
+    const scrollLeft = slider.scrollLeft;
+    const maxScroll = slider.scrollWidth - slider.clientWidth - 4;
+
+    if (prevBtn) {
+      prevBtn.disabled = scrollLeft <= 4;
+    }
+    if (nextBtn) {
+      nextBtn.disabled = scrollLeft >= maxScroll;
+    }
+
+    if (dots.length > 0) {
+      let activeIndex = 0;
+      let minDiff = Infinity;
+      cards.forEach((card, idx) => {
+        const diff = Math.abs((card.offsetLeft - slider.offsetLeft) - scrollLeft);
+        if (diff < minDiff) {
+          minDiff = diff;
+          activeIndex = idx;
+        }
+      });
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === activeIndex);
+        dot.setAttribute('aria-current', idx === activeIndex ? 'true' : 'false');
+      });
+    }
+  };
+
+  const getScrollStep = () => {
+    const firstCard = cards[0];
+    if (firstCard) {
+      return firstCard.offsetWidth + 20;
+    }
+    return 360;
+  };
+
+  prevBtn?.addEventListener('click', () => {
+    slider.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    slider.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+  });
+
+  slider.addEventListener('scroll', () => {
+    window.requestAnimationFrame(updateControls);
+  }, { passive: true });
+
+  let isDown = false;
+  let startX = 0;
+  let scrollLeftStart = 0;
+
+  slider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    slider.classList.add('is-dragging');
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeftStart = slider.scrollLeft;
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (isDown) {
+      isDown = false;
+      slider.classList.remove('is-dragging');
+    }
+  });
+
+  slider.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 1.4;
+    slider.scrollLeft = scrollLeftStart - walk;
+  });
+
+  slider.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      slider.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      slider.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+    }
+  });
+
+  window.addEventListener('resize', updateControls, { passive: true });
+  updateControls();
+}

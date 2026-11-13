@@ -8,19 +8,11 @@ const timeline: TimelineItem[] = [
     label: 'Pendidikan tinggi · S1',
     title: 'Teknik Informatika',
     institution: 'STT Terpadu Nurul Fikri',
+    description: 'Mendalami pengembangan perangkat lunak, pemrograman web modern, struktur data, dan rekayasa antarmuka pengguna.',
     isCurrent: true,
     statusBadge: 'Sedang ditempuh',
+    statusBadgeType: 'lime',
     icon: 'graduation-cap'
-  },
-  {
-    id: 'smk-amaliyah',
-    period: '2022 - 2025',
-    label: 'Pendidikan menengah · Keahlian',
-    title: 'Akuntansi dan Keuangan Lembaga',
-    institution: 'SMK Amaliyah Jakarta',
-    description: 'Mempelajari pencatatan transaksi, penyusunan laporan keuangan, administrasi, dan pengelolaan dokumen keuangan lembaga.',
-    icon: 'calculator',
-    isSecondaryIcon: true
   },
   {
     id: 'hima-ti',
@@ -29,7 +21,43 @@ const timeline: TimelineItem[] = [
     title: 'HIMA TI',
     institution: 'Himpunan Mahasiswa Teknik Informatika',
     description: 'Wadah mahasiswa untuk mengembangkan kompetensi di bidang informatika, berbagi wawasan, dan membangun kolaborasi melalui kegiatan akademik maupun kemahasiswaan di STT Terpadu Nurul Fikri.',
+    statusBadge: 'Organisasi Aktif',
+    statusBadgeType: 'blue',
     icon: 'users'
+  },
+  {
+    id: 'kadiv-sekretaris-oscar',
+    period: '2026',
+    label: 'Kepanitiaan kampus · Kepemimpinan',
+    title: 'Kepala Divisi Sekretaris',
+    institution: 'Kepanitiaan OSCAR 3.0 · STT Terpadu Nurul Fikri',
+    description: 'Memimpin divisi kesekretariatan dalam mengelola tata kelola persuratan resmi, proposal perizinan dan sponsorship, presensi panitia, notulensi rapat, serta kearsipan dan LPJ rangkaian acara OSCAR 3.0.',
+    statusBadge: 'Kepanitiaan Kampus',
+    statusBadgeType: 'purple',
+    icon: 'file-text'
+  },
+  {
+    id: 'kadiv-sekretaris-kelasik',
+    period: '2026',
+    label: 'Kepanitiaan kampus · Kepemimpinan',
+    title: 'Kepala Divisi Sekretaris',
+    institution: 'Kepanitiaan KELASIK (Kelas Asik) · STT Terpadu Nurul Fikri',
+    description: 'Mengoordinasikan kebutuhan administrasi acara, standardisasi berkas operasional, surat-menyurat internal & eksternal, notulensi koordinasi, serta penyusunan laporan pertanggungjawaban acara.',
+    statusBadge: 'Kepanitiaan Kampus',
+    statusBadgeType: 'purple',
+    icon: 'clipboard-list'
+  },
+  {
+    id: 'smk-amaliyah',
+    period: '2022 - 2025',
+    label: 'Pendidikan menengah · Keahlian',
+    title: 'Akuntansi dan Keuangan Lembaga',
+    institution: 'SMK Amaliyah Jakarta',
+    description: 'Mempelajari pencatatan transaksi, penyusunan laporan keuangan, administrasi, dan pengelolaan dokumen keuangan lembaga.',
+    statusBadge: 'Alumni 2025',
+    statusBadgeType: 'slate',
+    icon: 'calculator',
+    isSecondaryIcon: true
   }
 ];
 ---
@@ -37,37 +65,59 @@ const timeline: TimelineItem[] = [
 <!-- EDUCATION SECTION -->
 <section id="education" class="reveal-section content-section px-4 sm:px-6 lg:px-12 py-20 border-t border-white/5">
     <div class="max-w-7xl mx-auto">
-        <div class="section-heading">
+        <div class="section-heading flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
             <div>
                 <span class="section-index">02 · Riwayat</span>
                 <h2>Pendidikan &amp; Pengalaman</h2>
+                <p>Perjalanan akademik, kepengurusan organisasi, dan kepemimpinan kepanitiaan saya.</p>
             </div>
-            <p>Perjalanan akademik dan aktivitas kampus saya di bidang teknologi.</p>
+            <!-- Navigation controls for slider -->
+            <div class="timeline-slider-controls flex items-center gap-2 self-start sm:self-auto">
+                <button id="timeline-prev" class="slider-btn" aria-label="Geser ke kiri" title="Sebelumnya" type="button">
+                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                </button>
+                <button id="timeline-next" class="slider-btn" aria-label="Geser ke kanan" title="Selanjutnya" type="button">
+                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                </button>
+            </div>
         </div>
 
-        <div class="timeline academic-timeline">
-            {timeline.map((item) => (
-                <article class={`timeline-item${item.isCurrent ? ' timeline-item-current' : ''}`}>
-                    <div class="timeline-dot" aria-hidden="true"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-card-heading">
-                            <span class={`timeline-icon${item.isSecondaryIcon ? ' timeline-icon-secondary' : ''}`}>
-                                <i data-lucide={item.icon} class="w-5 h-5" aria-hidden="true"></i>
-                            </span>
-                            <span class="timeline-period">{item.period}</span>
+        <!-- Slider container -->
+        <div class="timeline-slider-wrapper relative">
+            <div id="timeline-slider" class="timeline-slider flex gap-5 overflow-x-auto pb-4 pt-2 scroll-smooth no-scrollbar" tabindex="0" aria-label="Daftar riwayat pendidikan dan pengalaman">
+                {timeline.map((item) => (
+                    <article class={`timeline-card shrink-0 flex flex-col justify-between p-6 sm:p-7 rounded-2xl ${item.isCurrent ? 'timeline-card-current' : ''}`}>
+                        <div>
+                            <div class="timeline-card-heading flex items-center justify-between gap-3 mb-4">
+                                <span class={`timeline-icon ${item.isSecondaryIcon ? 'timeline-icon-secondary' : ''} ${item.statusBadgeType ? `timeline-icon-${item.statusBadgeType}` : ''}`}>
+                                    <i data-lucide={item.icon} class="w-5 h-5" aria-hidden="true"></i>
+                                </span>
+                                <span class="timeline-period">{item.period}</span>
+                            </div>
+                            <span class="timeline-label">{item.label}</span>
+                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-1.5">{item.title}</h3>
+                            <p class="timeline-school font-semibold text-lime-400 mb-3">{item.institution}</p>
+                            {item.description && <p class="text-gray-300 text-sm leading-relaxed">{item.description}</p>}
                         </div>
-                        <span class="timeline-label">{item.label}</span>
-                        <h3>{item.title}</h3>
-                        <p class="timeline-school">{item.institution}</p>
-                        {item.description && <p>{item.description}</p>}
                         {item.statusBadge && (
-                            <span class="timeline-tag">
-                                <span aria-hidden="true"></span> {item.statusBadge}
-                            </span>
+                            <div class="mt-5 pt-3.5 border-t border-white/5">
+                                <span class={`timeline-tag timeline-tag-${item.statusBadgeType || 'lime'}`}>
+                                    <span aria-hidden="true"></span> {item.statusBadge}
+                                </span>
+                            </div>
                         )}
-                    </div>
-                </article>
-            ))}
+                    </article>
+                ))}
+            </div>
+
+            <!-- Dots indicator -->
+            <div id="timeline-dots" class="timeline-dots" aria-label="Indikator slide pengalaman"></div>
+
+            <!-- Hint indicator -->
+            <div class="slider-hint flex items-center justify-center gap-1.5 mt-3 text-xs text-gray-500">
+                <i data-lucide="chevrons-left-right" class="w-4 h-4 text-lime-400/80"></i>
+                <span>Geser kanan atau kiri untuk melihat riwayat lainnya</span>
+            </div>
         </div>
     </div>
 </section>

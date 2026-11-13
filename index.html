@@ -221,56 +221,120 @@
         <!-- EDUCATION SECTION -->
         <section id="education" class="reveal-section content-section px-4 sm:px-6 lg:px-12 py-20 border-t border-white/5">
             <div class="max-w-7xl mx-auto">
-                <div class="section-heading">
+                <div class="section-heading flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
                     <div>
                         <span class="section-index">02 · Riwayat</span>
                         <h2>Pendidikan &amp; Pengalaman</h2>
+                        <p>Perjalanan akademik, kepengurusan organisasi, dan kepemimpinan kepanitiaan saya.</p>
                     </div>
-                    <p>Perjalanan akademik dan aktivitas kampus saya di bidang teknologi.</p>
+                    <!-- Navigation controls for slider -->
+                    <div class="timeline-slider-controls flex items-center gap-2 self-start sm:self-auto">
+                        <button id="timeline-prev" class="slider-btn" aria-label="Geser ke kiri" title="Sebelumnya" type="button">
+                            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                        </button>
+                        <button id="timeline-next" class="slider-btn" aria-label="Geser ke kanan" title="Selanjutnya" type="button">
+                            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                        </button>
+                    </div>
                 </div>
 
-                <div class="timeline academic-timeline">
-                    <article class="timeline-item timeline-item-current">
-                        <div class="timeline-dot" aria-hidden="true"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-card-heading">
-                                <span class="timeline-icon"><i data-lucide="graduation-cap" class="w-5 h-5" aria-hidden="true"></i></span>
-                                <span class="timeline-period">2025 - Sekarang</span>
+                <!-- Slider container -->
+                <div class="timeline-slider-wrapper relative">
+                    <div id="timeline-slider" class="timeline-slider flex gap-5 overflow-x-auto pb-4 pt-2 scroll-smooth no-scrollbar" tabindex="0" aria-label="Daftar riwayat pendidikan dan pengalaman">
+                        <!-- 1. STT NF -->
+                        <article class="timeline-card timeline-card-current shrink-0 flex flex-col justify-between p-6 sm:p-7 rounded-2xl">
+                            <div>
+                                <div class="timeline-card-heading flex items-center justify-between gap-3 mb-4">
+                                    <span class="timeline-icon timeline-icon-lime"><i data-lucide="graduation-cap" class="w-5 h-5" aria-hidden="true"></i></span>
+                                    <span class="timeline-period">2025 - Sekarang</span>
+                                </div>
+                                <span class="timeline-label">Pendidikan tinggi · S1</span>
+                                <h3 class="text-xl sm:text-2xl font-bold text-white mb-1.5">Teknik Informatika</h3>
+                                <p class="timeline-school font-semibold text-lime-400 mb-3">STT Terpadu Nurul Fikri</p>
+                                <p class="text-gray-300 text-sm leading-relaxed">Mendalami pengembangan perangkat lunak, pemrograman web modern, struktur data, dan rekayasa antarmuka pengguna.</p>
                             </div>
-                            <span class="timeline-label">Pendidikan tinggi · S1</span>
-                            <h3>Teknik Informatika</h3>
-                            <p class="timeline-school">STT Terpadu Nurul Fikri</p>
-                            <span class="timeline-tag"><span aria-hidden="true"></span> Sedang ditempuh</span>
-                        </div>
-                    </article>
+                            <div class="mt-5 pt-3.5 border-t border-white/5">
+                                <span class="timeline-tag timeline-tag-lime"><span aria-hidden="true"></span> Sedang ditempuh</span>
+                            </div>
+                        </article>
 
-                    <article class="timeline-item">
-                        <div class="timeline-dot" aria-hidden="true"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-card-heading">
-                                <span class="timeline-icon timeline-icon-secondary"><i data-lucide="calculator" class="w-5 h-5" aria-hidden="true"></i></span>
-                                <span class="timeline-period">2022 - 2025</span>
+                        <!-- 2. HIMA TI -->
+                        <article class="timeline-card shrink-0 flex flex-col justify-between p-6 sm:p-7 rounded-2xl">
+                            <div>
+                                <div class="timeline-card-heading flex items-center justify-between gap-3 mb-4">
+                                    <span class="timeline-icon timeline-icon-blue"><i data-lucide="users" class="w-5 h-5" aria-hidden="true"></i></span>
+                                    <span class="timeline-period">2026 - Sekarang</span>
+                                </div>
+                                <span class="timeline-label">Organisasi mahasiswa</span>
+                                <h3 class="text-xl sm:text-2xl font-bold text-white mb-1.5">HIMA TI</h3>
+                                <p class="timeline-school font-semibold text-lime-400 mb-3">Himpunan Mahasiswa Teknik Informatika</p>
+                                <p class="text-gray-300 text-sm leading-relaxed">Wadah mahasiswa untuk mengembangkan kompetensi di bidang informatika, berbagi wawasan, dan membangun kolaborasi melalui kegiatan akademik maupun kemahasiswaan di STT Terpadu Nurul Fikri.</p>
                             </div>
-                            <span class="timeline-label">Pendidikan menengah · Keahlian</span>
-                            <h3>Akuntansi dan Keuangan Lembaga</h3>
-                            <p class="timeline-school">SMK Amaliyah Jakarta</p>
-                            <p>Mempelajari pencatatan transaksi, penyusunan laporan keuangan, administrasi, dan pengelolaan dokumen keuangan lembaga.</p>
-                        </div>
-                    </article>
+                            <div class="mt-5 pt-3.5 border-t border-white/5">
+                                <span class="timeline-tag timeline-tag-blue"><span aria-hidden="true"></span> Organisasi Aktif</span>
+                            </div>
+                        </article>
 
-                    <article class="timeline-item">
-                        <div class="timeline-dot" aria-hidden="true"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-card-heading">
-                                <span class="timeline-icon"><i data-lucide="users" class="w-5 h-5" aria-hidden="true"></i></span>
-                                <span class="timeline-period">2026 - Sekarang</span>
+                        <!-- 3. OSCAR 3.0 -->
+                        <article class="timeline-card shrink-0 flex flex-col justify-between p-6 sm:p-7 rounded-2xl">
+                            <div>
+                                <div class="timeline-card-heading flex items-center justify-between gap-3 mb-4">
+                                    <span class="timeline-icon timeline-icon-purple"><i data-lucide="file-text" class="w-5 h-5" aria-hidden="true"></i></span>
+                                    <span class="timeline-period">2026</span>
+                                </div>
+                                <span class="timeline-label">Kepanitiaan kampus · Kepemimpinan</span>
+                                <h3 class="text-xl sm:text-2xl font-bold text-white mb-1.5">Kepala Divisi Sekretaris</h3>
+                                <p class="timeline-school font-semibold text-lime-400 mb-3">Kepanitiaan OSCAR 3.0 · STT Terpadu Nurul Fikri</p>
+                                <p class="text-gray-300 text-sm leading-relaxed">Memimpin divisi kesekretariatan dalam mengelola tata kelola persuratan resmi, proposal perizinan dan sponsorship, presensi panitia, notulensi rapat, serta kearsipan dan LPJ rangkaian acara OSCAR 3.0.</p>
                             </div>
-                            <span class="timeline-label">Organisasi mahasiswa</span>
-                            <h3>HIMA TI</h3>
-                            <p class="timeline-school">Himpunan Mahasiswa Teknik Informatika</p>
-                            <p>Wadah mahasiswa untuk mengembangkan kompetensi di bidang informatika, berbagi wawasan, dan membangun kolaborasi melalui kegiatan akademik maupun kemahasiswaan di STT Terpadu Nurul Fikri.</p>
-                        </div>
-                    </article>
+                            <div class="mt-5 pt-3.5 border-t border-white/5">
+                                <span class="timeline-tag timeline-tag-purple"><span aria-hidden="true"></span> Kepanitiaan Kampus</span>
+                            </div>
+                        </article>
+
+                        <!-- 4. KELASIK -->
+                        <article class="timeline-card shrink-0 flex flex-col justify-between p-6 sm:p-7 rounded-2xl">
+                            <div>
+                                <div class="timeline-card-heading flex items-center justify-between gap-3 mb-4">
+                                    <span class="timeline-icon timeline-icon-purple"><i data-lucide="clipboard-list" class="w-5 h-5" aria-hidden="true"></i></span>
+                                    <span class="timeline-period">2026</span>
+                                </div>
+                                <span class="timeline-label">Kepanitiaan kampus · Kepemimpinan</span>
+                                <h3 class="text-xl sm:text-2xl font-bold text-white mb-1.5">Kepala Divisi Sekretaris</h3>
+                                <p class="timeline-school font-semibold text-lime-400 mb-3">Kepanitiaan KELASIK (Kelas Asik) · STT Terpadu Nurul Fikri</p>
+                                <p class="text-gray-300 text-sm leading-relaxed">Mengoordinasikan kebutuhan administrasi acara, standardisasi berkas operasional, surat-menyurat internal &amp; eksternal, notulensi koordinasi, serta penyusunan laporan pertanggungjawaban acara.</p>
+                            </div>
+                            <div class="mt-5 pt-3.5 border-t border-white/5">
+                                <span class="timeline-tag timeline-tag-purple"><span aria-hidden="true"></span> Kepanitiaan Kampus</span>
+                            </div>
+                        </article>
+
+                        <!-- 5. SMK Amaliyah -->
+                        <article class="timeline-card shrink-0 flex flex-col justify-between p-6 sm:p-7 rounded-2xl">
+                            <div>
+                                <div class="timeline-card-heading flex items-center justify-between gap-3 mb-4">
+                                    <span class="timeline-icon timeline-icon-slate"><i data-lucide="calculator" class="w-5 h-5" aria-hidden="true"></i></span>
+                                    <span class="timeline-period">2022 - 2025</span>
+                                </div>
+                                <span class="timeline-label">Pendidikan menengah · Keahlian</span>
+                                <h3 class="text-xl sm:text-2xl font-bold text-white mb-1.5">Akuntansi dan Keuangan Lembaga</h3>
+                                <p class="timeline-school font-semibold text-lime-400 mb-3">SMK Amaliyah Jakarta</p>
+                                <p class="text-gray-300 text-sm leading-relaxed">Mempelajari pencatatan transaksi, penyusunan laporan keuangan, administrasi, dan pengelolaan dokumen keuangan lembaga.</p>
+                            </div>
+                            <div class="mt-5 pt-3.5 border-t border-white/5">
+                                <span class="timeline-tag timeline-tag-slate"><span aria-hidden="true"></span> Alumni 2025</span>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Dots indicator -->
+                    <div id="timeline-dots" class="timeline-dots" aria-label="Indikator slide pengalaman"></div>
+
+                    <!-- Hint indicator -->
+                    <div class="slider-hint flex items-center justify-center gap-1.5 mt-3 text-xs text-gray-500">
+                        <i data-lucide="chevrons-left-right" class="w-4 h-4 text-lime-400/80"></i>
+                        <span>Geser kanan atau kiri untuk melihat riwayat lainnya</span>
+                    </div>
                 </div>
             </div>
         </section>

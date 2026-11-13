@@ -588,6 +588,209 @@
     background: currentColor;
     box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.2);
   }
+
+  &-lime {
+    background: rgba(180, 230, 72, 0.1);
+    border-color: rgba(180, 230, 72, 0.3);
+    color: $brand-lime;
+    span { box-shadow: 0 0 0 3px rgba(180, 230, 72, 0.25); }
+  }
+
+  &-blue {
+    background: rgba(56, 189, 248, 0.1);
+    border-color: rgba(56, 189, 248, 0.3);
+    color: #38bdf8;
+    span { box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25); }
+  }
+
+  &-purple {
+    background: rgba(168, 85, 247, 0.1);
+    border-color: rgba(168, 85, 247, 0.3);
+    color: #c084fc;
+    span { box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.25); }
+  }
+
+  &-slate {
+    background: rgba(148, 163, 184, 0.08);
+    border-color: rgba(148, 163, 184, 0.2);
+    color: #94a3b8;
+    span { box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.2); }
+  }
+
+}
+
+.timeline-icon-lime {
+  background: $brand-lime-subtle;
+  border-color: $line-lime;
+  color: $brand-lime;
+}
+
+.timeline-icon-blue {
+  background: rgba(56, 189, 248, 0.1);
+  border-color: rgba(56, 189, 248, 0.3);
+  color: #38bdf8;
+}
+
+.timeline-icon-purple {
+  background: rgba(168, 85, 247, 0.1);
+  border-color: rgba(168, 85, 247, 0.3);
+  color: #c084fc;
+}
+
+.timeline-icon-slate {
+  background: rgba(148, 163, 184, 0.08);
+  border-color: rgba(148, 163, 184, 0.2);
+  color: #94a3b8;
+}
+
+
+// TIMELINE SLIDER (HORIZONTAL SCROLL/SWIPE)
+.timeline-slider-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.slider-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: $radius-md;
+  background: $bg-card;
+  border: 1px solid $line;
+  color: $text-secondary;
+  cursor: pointer;
+  transition: all $transition-default;
+
+  &:hover:not(:disabled) {
+    background: $bg-card-hover;
+    border-color: $line-lime;
+    color: $brand-lime;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(180, 230, 72, 0.15);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+}
+
+.timeline-slider-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.timeline-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &.is-dragging {
+    cursor: grabbing;
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+    user-select: none;
+  }
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.timeline-card {
+  flex: 0 0 360px;
+  width: 360px;
+  scroll-snap-align: start;
+  background: $bg-card;
+  border: 1px solid $line;
+  border-radius: $radius-lg;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: transform $transition-default, border-color $transition-default, box-shadow $transition-default, background-color $transition-default;
+
+  &:hover {
+    transform: translateY(-6px);
+    background-color: $bg-card-hover;
+    border-color: $line-lime;
+    box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.45), 0 0 24px -4px rgba(180, 230, 72, 0.14);
+  }
+
+  @include mobile {
+    flex: 0 0 86%;
+    width: 86%;
+    max-width: 340px;
+  }
+}
+
+.timeline-card-current {
+  border-color: rgba(180, 230, 72, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), 0 0 20px -6px rgba(180, 230, 72, 0.15);
+}
+
+.timeline-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all $transition-default;
+
+  &:hover {
+    background: rgba(180, 230, 72, 0.5);
+    transform: scale(1.15);
+  }
+
+  &.active {
+    width: 28px;
+    background: $brand-lime;
+    box-shadow: 0 0 12px rgba(180, 230, 72, 0.5);
+  }
+}
+
+.slider-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+  font-size: 0.8rem;
+  color: $text-muted;
+  letter-spacing: 0.01em;
+
+  i, svg {
+    color: $brand-lime;
+  }
 }
 
 // SKILLS SECTION

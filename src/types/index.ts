@@ -23,6 +23,7 @@ export interface TimelineItem {
   description?: string;
   isCurrent?: boolean;
   statusBadge?: string;
+  statusBadgeType?: string;
   icon: string;
   isSecondaryIcon?: boolean;
 }
