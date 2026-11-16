@@ -12,7 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="stylesheet" href="css/style.css?v=4">
@@ -64,7 +63,7 @@
 
             <h2 class="hero-sub font-semibold mb-6 flex flex-wrap items-center gap-2">
                 <span>Mahasiswa Teknik Informatika</span>
-                <span id="typed" class="font-extrabold text-lime-400"></span>
+                <span class="hero-role-badge font-extrabold text-lime-400">Web Developer</span>
             </h2>
 
             <p class="hero-desc text-gray-400 max-w-2xl text-base md:text-lg mb-8 leading-relaxed">
@@ -107,8 +106,32 @@
                 <div class="about-grid grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
                     <div class="lg:col-span-5 flex justify-center">
                         <div class="about-photo-card">
-                            <div class="about-photo-wrapper">
-                                <img src="/images/foto saya.jpeg" alt="Potret Muhamad Rayhan Maulana" class="profile-img" loading="lazy">
+                            <!-- Photo Carousel -->
+                            <div class="photo-carousel" id="photo-carousel" aria-label="Foto profil Rayhan">
+                                <div class="photo-carousel-track" id="photo-carousel-track">
+                                    <div class="photo-slide">
+                                        <div class="about-photo-wrapper">
+                                            <img src="/images/rayhan.jpeg" alt="Potret Muhamad Rayhan Maulana" class="profile-img" loading="eager">
+                                        </div>
+                                    </div>
+                                    <div class="photo-slide">
+                                        <div class="about-photo-wrapper">
+                                            <img src="/images/foto saya.jpeg" alt="Foto Muhamad Rayhan Maulana" class="profile-img" loading="lazy">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Carousel Controls -->
+                                <button class="photo-carousel-btn photo-carousel-prev" id="photo-prev" aria-label="Foto sebelumnya" type="button">
+                                    <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                                </button>
+                                <button class="photo-carousel-btn photo-carousel-next" id="photo-next" aria-label="Foto berikutnya" type="button">
+                                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                </button>
+                                <!-- Dots -->
+                                <div class="photo-carousel-dots" aria-label="Navigasi foto">
+                                    <button class="photo-dot active" data-index="0" aria-label="Foto 1" type="button"></button>
+                                    <button class="photo-dot" data-index="1" aria-label="Foto 2" type="button"></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -422,7 +445,7 @@
                                 <div class="project-tags flex flex-wrap gap-2 mb-3.5">
                                     <span class="tag-accent">Tailwind CSS</span>
                                     <span class="tag-accent">JavaScript</span>
-                                    <span class="tag-accent">Bootstrap</span>
+                                    <span class="tag-accent">HTML</span>
                                 </div>
                                 <h3 class="project-title text-xl sm:text-2xl font-bold mb-2.5 transition">
                                     Website E-Commerce Toko Buah

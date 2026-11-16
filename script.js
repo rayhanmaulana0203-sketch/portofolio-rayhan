@@ -6,21 +6,50 @@ function initScript() {
     };
     refreshIcons();
 
-    // Hero title role typewriter
-    const typedElement = document.getElementById('typed');
-    if (typedElement && typeof Typed !== 'undefined') {
-        new Typed('#typed', {
-            strings: [
-                'Web Developer.',
-                'UI/UX Enthusiast.',
-                'Frontend Builder.'
-            ],
-            typeSpeed: 60,
-            backSpeed: 35,
-            backDelay: 1600,
-            loop: true
+    // Hero role badge — static, no typed.js needed
+
+    // Photo carousel (About section)
+    (function initPhotoCarousel() {
+        const carousel = document.getElementById('photo-carousel');
+        const track = document.getElementById('photo-carousel-track');
+        const prevBtn = document.getElementById('photo-prev');
+        const nextBtn = document.getElementById('photo-next');
+        const dots = document.querySelectorAll('.photo-dot');
+        if (!carousel || !track) return;
+
+        let current = 0;
+        const total = dots.length;
+
+        function goTo(index) {
+            current = (index + total) % total;
+            track.style.transform = 'translateX(-' + (current * 50) + '%)';
+            dots.forEach(function(d, i) {
+                d.classList.toggle('active', i === current);
+            });
+        }
+
+        if (prevBtn) prevBtn.addEventListener('click', function() { goTo(current - 1); });
+        if (nextBtn) nextBtn.addEventListener('click', function() { goTo(current + 1); });
+        dots.forEach(function(dot, i) {
+            dot.addEventListener('click', function() { goTo(i); });
         });
-    }
+
+        // Touch/swipe support
+        var startX = 0;
+        carousel.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
+        carousel.addEventListener('touchend', function(e) {
+            var diff = startX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+        }, { passive: true });
+
+        // Auto-rotate every 4s, pause on hover
+        var timer = setInterval(function() { goTo(current + 1); }, 4000);
+        carousel.addEventListener('mouseenter', function() { clearInterval(timer); });
+        carousel.addEventListener('mouseleave', function() {
+            clearInterval(timer);
+            timer = setInterval(function() { goTo(current + 1); }, 4000);
+        });
+    })();
 
     // Mobile navigation toggle
     const menuBtn = document.getElementById('menu-btn');
