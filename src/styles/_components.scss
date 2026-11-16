@@ -181,10 +181,10 @@
 .hero-desc {
   .hero-section & {
     @media (min-width: 1200px) {
-      max-width: 38rem;
+      max-width: 52rem;
       margin-bottom: 2rem;
-      font-size: 1.15rem;
-      line-height: 1.65;
+      font-size: 1.25rem;
+      line-height: 1.6;
     }
   }
 }
@@ -283,23 +283,7 @@
   }
 }
 
-// HERO TERMINAL CARD
-.hero-terminal-card {
-  position: relative;
-  background: rgba(15, 20, 31, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: $radius-xl;
-  box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.7), 0 0 35px -8px rgba(180, 230, 72, 0.08);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  transition: transform $transition-default, border-color $transition-default, box-shadow $transition-default;
 
-  &:hover {
-    border-color: rgba(180, 230, 72, 0.28);
-    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.75), 0 0 45px -5px rgba(180, 230, 72, 0.16);
-    transform: translateY(-3px);
-  }
-}
 
 .social-btn {
   @include grid-center;
