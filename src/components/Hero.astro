@@ -2,37 +2,101 @@
 ---
 <!-- HERO SECTION -->
 <section id="home" class="hero-section px-4 sm:px-6 lg:px-12 py-20 md:py-28 max-w-7xl mx-auto relative z-10">
-    <h1 id="hero-title" class="hero-title font-extrabold tracking-tight mb-4">
-        Muhamad Rayhan Maulana
-    </h1>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <!-- Kolom Kiri: Teks & Aksi -->
+        <div class="lg:col-span-7 flex flex-col justify-center">
+            <h1 id="hero-title" class="hero-title font-extrabold tracking-tight mb-4">
+                Muhamad Rayhan Maulana
+            </h1>
 
-    <h2 class="hero-sub font-semibold mb-6 flex flex-wrap items-center gap-2">
-        <span>Mahasiswa Teknik Informatika</span>
-        <span class="hero-role-badge font-extrabold text-lime-400">Web Developer</span>
-    </h2>
+            <h2 class="hero-sub font-semibold mb-6 flex flex-wrap items-center gap-x-2.5 gap-y-1">
+                <span>Mahasiswa Teknik Informatika</span>
+                <span class="text-zinc-500 font-normal select-none" aria-hidden="true">·</span>
+                <span class="hero-role-badge font-extrabold text-lime-400">Web Developer & Full-Stack Developer</span>
+            </h2>
 
-    <p class="hero-desc text-gray-400 max-w-2xl text-base md:text-lg mb-8 leading-relaxed">
-        Saya membangun halaman web yang cepat dimuat, mudah dinavigasi, dan nyaman dipakai di semua perangkat.
-    </p>
+            <p class="hero-desc text-gray-400 max-w-xl text-base md:text-lg mb-8 leading-relaxed">
+                Saya membangun halaman web yang cepat dimuat, mudah dinavigasi, dan nyaman dipakai di semua perangkat.
+            </p>
 
-    <div class="hero-actions flex flex-wrap items-center gap-4">
-        <a href="#projects" class="hero-primary">
-            <span>Lihat proyek saya</span>
-        </a>
-        <a href="#contact" class="hero-primary">
-            <span>Kirim pesan</span>
-        </a>
-    </div>
+            <div class="hero-actions flex flex-wrap items-center gap-4">
+                <a href="#projects" class="hero-primary">
+                    <span>Lihat proyek saya</span>
+                </a>
+                <a href="#contact" class="hero-secondary">
+                    <span>Kirim pesan</span>
+                </a>
+            </div>
 
-    <div class="hero-social flex items-center gap-3 mt-8">
-        <a href="https://github.com/rayhanmaulana0203-sketch" target="_blank" rel="noopener noreferrer" aria-label="Profil GitHub Rayhan" title="GitHub" class="social-btn">
-            <i data-lucide="code-2" class="w-5 h-5" aria-hidden="true"></i>
-        </a>
-        <a href="https://linkedin.com/in/muhamad-rayhan-maulana-743b47363" target="_blank" rel="noopener noreferrer" aria-label="Profil LinkedIn Rayhan" title="LinkedIn" class="social-btn">
-            <i data-lucide="briefcase-business" class="w-5 h-5" aria-hidden="true"></i>
-        </a>
-        <a href="mailto:rayhanmaulana0203@gmail.com" aria-label="Kirim email kepada Rayhan" title="Email" class="social-btn">
-            <i data-lucide="mail" class="w-5 h-5"></i>
-        </a>
+            <div class="hero-social flex items-center gap-3 mt-8">
+                <a href="https://github.com/rayhanmaulana0203-sketch" target="_blank" rel="noopener noreferrer" aria-label="Profil GitHub Rayhan" title="GitHub" class="social-btn">
+                    <i data-lucide="code-2" class="w-5 h-5" aria-hidden="true"></i>
+                </a>
+                <a href="https://linkedin.com/in/muhamad-rayhan-maulana-743b47363" target="_blank" rel="noopener noreferrer" aria-label="Profil LinkedIn Rayhan" title="LinkedIn" class="social-btn">
+                    <i data-lucide="briefcase-business" class="w-5 h-5" aria-hidden="true"></i>
+                </a>
+                <a href="mailto:rayhanmaulana0203@gmail.com" aria-label="Kirim email kepada Rayhan" title="Email" class="social-btn">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Kolom Kanan: Visual Card (Terminal / Code Snippet Glassmorphism) -->
+        <div class="lg:col-span-5 w-full flex justify-center lg:justify-end mt-4 lg:mt-0">
+            <div class="hero-visual-wrapper relative w-full max-w-lg lg:max-w-none">
+                <!-- Ambient Glow behind card -->
+                <div class="hero-card-glow absolute -inset-1 rounded-2xl bg-gradient-to-r from-lime-400/20 via-emerald-500/10 to-cyan-500/15 blur-xl opacity-60 -z-10" aria-hidden="true"></div>
+
+                <!-- Terminal Glass Card -->
+                <div class="hero-terminal-card rounded-2xl overflow-hidden border border-white/10 bg-[#0f141f]/85 backdrop-blur-xl shadow-2xl transition-all duration-300 hover:border-lime-400/30">
+                    <!-- Terminal Header -->
+                    <div class="terminal-header flex items-center justify-between px-4 py-3 bg-white/[0.03] border-b border-white/[0.07]">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block shadow-sm"></span>
+                            <span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block shadow-sm"></span>
+                            <span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block shadow-sm"></span>
+                            <span class="ml-2 text-xs font-mono text-gray-400 flex items-center gap-1.5 select-none">
+                                <i data-lucide="terminal" class="w-3.5 h-3.5 text-lime-400"></i>
+                                <span>rayhan.config.ts</span>
+                            </span>
+                        </div>
+                        <button id="copy-snippet-btn" type="button" class="copy-code-btn text-xs font-mono text-gray-400 hover:text-lime-400 flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.06] transition cursor-pointer" aria-label="Salin snippet kode" title="Salin kode">
+                            <i data-lucide="copy" class="w-3.5 h-3.5" id="copy-snippet-icon"></i>
+                            <span id="copy-snippet-label" class="hidden sm:inline text-[11px]">Copy</span>
+                        </button>
+                    </div>
+
+                    <!-- Terminal Code Body -->
+                    <div class="p-5 font-mono text-xs sm:text-[13px] leading-relaxed overflow-x-auto text-gray-300">
+                        <pre class="m-0 font-mono"><code><span class="text-zinc-600 select-none mr-3">01</span><span class="text-purple-400">const</span> <span class="text-sky-300">developer</span> = &#123;
+<span class="text-zinc-600 select-none mr-3">02</span>  <span class="text-sky-300">name</span>: <span class="text-lime-400">'Muhamad Rayhan Maulana'</span>,
+<span class="text-zinc-600 select-none mr-3">03</span>  <span class="text-sky-300">role</span>: <span class="text-lime-400">'Web &amp; Full-Stack Dev'</span>,
+<span class="text-zinc-600 select-none mr-3">04</span>  <span class="text-sky-300">education</span>: <span class="text-lime-400">'Teknik Informatika'</span>,
+<span class="text-zinc-600 select-none mr-3">05</span>  <span class="text-sky-300">skills</span>: [
+<span class="text-zinc-600 select-none mr-3">06</span>    <span class="text-amber-300">'TypeScript'</span>, <span class="text-amber-300">'Astro'</span>, <span class="text-amber-300">'React'</span>,
+<span class="text-zinc-600 select-none mr-3">07</span>    <span class="text-amber-300">'Tailwind'</span>, <span class="text-amber-300">'Node.js'</span>, <span class="text-amber-300">'UI/UX'</span>
+<span class="text-zinc-600 select-none mr-3">08</span>  ],
+<span class="text-zinc-600 select-none mr-3">09</span>  <span class="text-sky-300">mindset</span>: <span class="text-lime-400">'Fast · Clean · Intuitive'</span>,
+<span class="text-zinc-600 select-none mr-3">10</span>  <span class="text-sky-300">available</span>: <span class="text-emerald-400">true</span>
+<span class="text-zinc-600 select-none mr-3">11</span>&#125;;</code></pre>
+                    </div>
+
+                    <!-- Terminal Footer / Status Bar -->
+                    <div class="px-4 py-2.5 bg-white/[0.02] border-t border-white/[0.05] flex items-center justify-between text-[11px] font-mono text-gray-400 select-none">
+                        <div class="flex items-center gap-2">
+                            <span class="relative flex h-2 w-2">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-lime-400"></span>
+                            </span>
+                            <span class="text-gray-300">Ready to build</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-zinc-500">
+                            <span>UTF-8</span>
+                            <span>TypeScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>

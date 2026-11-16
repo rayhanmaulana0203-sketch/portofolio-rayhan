@@ -181,10 +181,10 @@
 .hero-desc {
   .hero-section & {
     @media (min-width: 1200px) {
-      max-width: 52rem;
+      max-width: 38rem;
       margin-bottom: 2rem;
-      font-size: 1.25rem;
-      line-height: 1.6;
+      font-size: 1.15rem;
+      line-height: 1.65;
     }
   }
 }
@@ -247,20 +247,25 @@
 .hero-secondary {
   display: inline-flex;
   align-items: center;
+  gap: 8px;
   padding: 13px 24px;
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid $line-strong;
-  color: $text-primary !important;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #ffffff !important;
   font-size: 0.9rem;
   font-weight: 600;
   border-radius: $radius-md;
   text-decoration: none;
-  transition: transform $transition-default, border-color $transition-default, background $transition-default;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform $transition-default, border-color $transition-default, background $transition-default, color $transition-default, box-shadow $transition-default;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.07);
-    border-color: $line-lime;
+    background: rgba(180, 230, 72, 0.08);
+    border-color: rgba(180, 230, 72, 0.5);
+    color: $brand-lime !important;
     transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(180, 230, 72, 0.14);
   }
 
   @include mobile {
@@ -275,6 +280,24 @@
       padding: 0 22px;
       font-size: 0.95rem;
     }
+  }
+}
+
+// HERO TERMINAL CARD
+.hero-terminal-card {
+  position: relative;
+  background: rgba(15, 20, 31, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: $radius-xl;
+  box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.7), 0 0 35px -8px rgba(180, 230, 72, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: transform $transition-default, border-color $transition-default, box-shadow $transition-default;
+
+  &:hover {
+    border-color: rgba(180, 230, 72, 0.28);
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.75), 0 0 45px -5px rgba(180, 230, 72, 0.16);
+    transform: translateY(-3px);
   }
 }
 
