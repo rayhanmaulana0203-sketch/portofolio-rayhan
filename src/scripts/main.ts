@@ -7,7 +7,8 @@ import {
   initScrollReveal,
   initCopyEmail,
   initReadMore,
-  initTimelineSlider
+  initTimelineSlider,
+  initPhotoCarousel
 } from './ui';
 
 function init(): void {
@@ -19,6 +20,7 @@ function init(): void {
   initCopyEmail();
   initReadMore();
   initTimelineSlider();
+  initPhotoCarousel();
 
   try {
     const starfield = new StarfieldCanvas({
