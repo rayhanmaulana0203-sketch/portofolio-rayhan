@@ -13,29 +13,16 @@
 
         <div class="about-grid grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             <div class="lg:col-span-5 flex justify-center">
-                <div class="about-photo-card">
-                    <div class="photo-carousel" id="photo-carousel" aria-label="Foto profil Rayhan">
-                        <div class="photo-carousel-track" id="photo-carousel-track">
-                            <div class="photo-slide">
-                                <div class="about-photo-wrapper">
-                                    <img src="/images/rayhan.jpeg" alt="Potret Muhamad Rayhan Maulana" class="profile-img" loading="eager">
-                                </div>
-                            </div>
-                            <div class="photo-slide">
-                                <div class="about-photo-wrapper">
-                                    <img src="/images/foto saya.jpeg" alt="Foto Muhamad Rayhan Maulana" class="profile-img" loading="lazy">
-                                </div>
-                            </div>
-                        </div>
-                        <button class="photo-carousel-btn photo-carousel-prev" id="photo-prev" aria-label="Foto sebelumnya" type="button">
-                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
-                        </button>
-                        <button class="photo-carousel-btn photo-carousel-next" id="photo-next" aria-label="Foto berikutnya" type="button">
-                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                        </button>
-                        <div class="photo-carousel-dots" aria-label="Navigasi foto">
-                            <button class="photo-dot active" data-index="0" aria-label="Foto 1" type="button"></button>
-                            <button class="photo-dot" data-index="1" aria-label="Foto 2" type="button"></button>
+                <div class="about-photo-card group">
+                    <div class="about-photo-wrapper">
+                        <img src="/images/foto saya.jpeg" alt="Potret Muhamad Rayhan Maulana" class="profile-img" loading="eager">
+                        <div class="about-photo-overlay" aria-hidden="true"></div>
+                    </div>
+                    <div class="about-photo-badge">
+                        <span class="badge-dot" aria-hidden="true"></span>
+                        <div class="badge-info">
+                            <span class="badge-name">Muhamad Rayhan M.</span>
+                            <span class="badge-role">Available for Projects</span>
                         </div>
                     </div>
                 </div>

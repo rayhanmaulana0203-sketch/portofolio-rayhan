@@ -383,6 +383,14 @@ a:focus-visible, button:focus-visible {
 /* --------------------------------------------------------------------------
    6. ABOUT SECTION & PROFILE CARD
    -------------------------------------------------------------------------- */
+/* Hero role badge (replaces typed.js) */
+.hero-role-badge {
+    display: inline-block;
+    color: var(--brand-lime);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+}
+
 .about-photo-card {
     position: relative;
     width: 100%;
@@ -395,102 +403,13 @@ a:focus-visible, button:focus-visible {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
 
-/* ── Photo Carousel ─────────────────────────────────────── */
-.photo-carousel {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    border-radius: var(--radius-xl);
-}
-
-.photo-carousel-track {
-    display: flex;
-    width: 200%;
-    height: 100%;
-    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: transform;
-}
-
-.photo-slide {
-    width: 50%;
-    height: 100%;
-    flex-shrink: 0;
-}
-
-/* Prev / Next arrow buttons */
-.photo-carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: rgba(11, 14, 20, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    transition: background var(--transition), border-color var(--transition), transform 0.2s ease, box-shadow var(--transition);
-    opacity: 0;
-}
-
-.photo-carousel:hover .photo-carousel-btn {
-    opacity: 1;
-}
-
-.photo-carousel-btn:hover {
-    background: rgba(180, 230, 72, 0.18);
-    border-color: rgba(180, 230, 72, 0.5);
-    box-shadow: 0 0 14px rgba(180, 230, 72, 0.25);
-    transform: translateY(-50%) scale(1.08);
-}
-
-.photo-carousel-prev { left: 10px; }
-.photo-carousel-next { right: 10px; }
-
-/* Dot indicators */
-.photo-carousel-dots {
-    position: absolute;
-    bottom: 14px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 7px;
-    z-index: 10;
-}
-
-.photo-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.35);
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease, width 0.3s ease;
-    padding: 0;
-}
-
-.photo-dot.active {
-    background: var(--brand-lime);
-    width: 20px;
-    border-radius: 4px;
-    box-shadow: 0 0 8px rgba(180, 230, 72, 0.5);
-}
-
-/* Hero role badge (replaces typed.js) */
-.hero-role-badge {
-    display: inline-block;
-    color: var(--brand-lime);
-    font-weight: 800;
-    letter-spacing: -0.01em;
+.about-photo-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(180, 230, 72, 0.3);
+    box-shadow: 0 28px 56px -12px rgba(0, 0, 0, 0.75), 0 0 24px -6px rgba(180, 230, 72, 0.2);
 }
 
 .about-photo-wrapper {
@@ -509,15 +428,44 @@ a:focus-visible, button:focus-visible {
     height: 100%;
     object-fit: cover;
     object-position: center top;
-    transition: transform var(--transition);
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .about-photo-card:hover .profile-img {
-    transform: scale(1.02);
+    transform: scale(1.04);
+}
+
+.about-photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(11, 14, 20, 0.85) 0%, rgba(11, 14, 20, 0.2) 35%, transparent 60%);
+    pointer-events: none;
+    z-index: 1;
 }
 
 .about-photo-badge {
     position: absolute;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    z-index: 2;
+    background: rgba(14, 18, 26, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 10px 14px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    transition: border-color var(--transition), transform var(--transition);
+}
+
+.about-photo-card:hover .about-photo-badge {
+    border-color: rgba(180, 230, 72, 0.35);
+    transform: translateY(-2px);
+}
     bottom: 16px;
     left: 16px;
     right: 16px;
